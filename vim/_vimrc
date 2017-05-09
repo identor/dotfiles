@@ -1,5 +1,9 @@
 " Recommended settings
-set clipboard=unnamed
+if has('unix')
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+endif
 set nocompatible
 filetype off
 
@@ -89,9 +93,6 @@ endif
 
 " Strip whitespace
 autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
-" cd to current dir
-autocmd BufEnter * silent! lcd %:p:h
 
 " Ctrlp ignore
 let g:ctrlp_custom_ignore = {
