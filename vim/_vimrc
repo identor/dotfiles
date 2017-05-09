@@ -1,0 +1,115 @@
+" Recommended settings
+set clipboard=unnamed
+set nocompatible
+filetype off
+
+" Vundle Settings
+set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+call vundle#begin('$HOME/vimfiles/bundle/')
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins here:
+Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'jason0x43/vim-js-indent'
+Plugin 'Quramy/vim-js-pretty-template'
+Plugin 'jelera/vim-javascript-syntax'
+
+call vundle#end()
+
+" Syntax and plugin settings
+filetype plugin indent on
+syntax enable
+
+set nowrap
+set list
+set relativenumber
+
+if has('win32')
+    set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+endif
+
+if has('unix')
+    set listchars=tab:>\ ,trail:.,extends:#,nbsp:.
+endif
+
+" Enable mouse
+set mouse=a
+
+" Set temp directory
+set backupdir=$HOME/vimfiles/tmp,.
+set directory=$HOME/vimfiles/tmp,.
+
+" Default indention settings
+set noet
+set ts=4
+set sw=4
+set sts=4
+
+" Make backspace work like other apps
+set backspace=2
+
+set bg=dark
+
+" If gvim
+if has("gui_running")
+    if isdirectory(expand("$HOME/vimfiles/bundle/vim-colors-solarized"))
+        " Color scheme
+        colo solarized
+    endif
+
+    " Remove toolbars
+    set guioptions-=T  "remove toolbar
+    set guioptions-=m  "remove menu bar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+
+    " Set gui font
+    if has('unix')
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+    else
+        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
+    endif
+else
+    colo desert
+    if isdirectory(expand("$HOME/vimfiles/bundle/vim-colors-solarized"))
+        set t_Co=16
+        let g:solarized_termcolors=256
+        let g:solarized_termtrans=1
+        let g:solarized_contrast="normal"
+        let g:solarized_visibility="normal"
+
+        " Color scheme
+        colo solarized
+    endif
+endif
+
+" Strip whitespace
+autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+
+" cd to current dir
+autocmd BufEnter * silent! lcd %:p:h
+
+" Ctrlp ignore
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|(node_modules))$',
+  \ 'file': '\v\.(exe|so|dll|zip|gz|rar)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+" Key mappings
+let mapleader=" "
+
+nnoremap <leader>l :tabnext<cr>
+nnoremap <leader>h :tabprev<cr>
+nnoremap <leader>e :NERDTreeToggle<cr>
+
+" Fugitive bindings
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gps :Gpush<cr>
+nnoremap <leader>gpl :Gpull<cr>
+nnoremap <leader>gc :Gcommit<cr>
+
