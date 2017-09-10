@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Environment name:" $ENV_NAME
+echo
+

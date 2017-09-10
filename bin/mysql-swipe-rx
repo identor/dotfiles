@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Load utils
+source ~/.bin/common/echo-env-name
+
+winpty winpty mysql -p$DB_PASSWORD -u$DB_USER -h$DB_HOST $DB_DEFAULT
+

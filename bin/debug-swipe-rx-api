@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Load utils
+source ~/.bin/common/echo-env-name
+source ~/.env/sources/swipe-rx/api
+
+cd $SRC_DIR
+
+nodemon --inspect bin/www
+
