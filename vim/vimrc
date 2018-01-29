@@ -19,6 +19,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'low-ghost/nerdtree-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dkprice/vim-easygrep'
 "Plugin 'jelera/vim-javascript-syntax'
 Plugin 'itchyny/lightline.vim'
 Plugin 'posva/vim-vue'
@@ -59,8 +60,8 @@ endif
 set mouse=a
 
 " Set temp directory
-set backupdir=$HOME/.vim/tmp,.
-set directory=$HOME/.vim/tmp,.
+set backupdir=$HOME/.vimswap
+set directory=$HOME/.vimswap
 
 " Default indention settings
 set noet
