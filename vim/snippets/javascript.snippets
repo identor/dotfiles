@@ -1,0 +1,70 @@
+snippet creqkey
+	const ${1} = req.keys.get('${2}');
+
+snippet cwarpq
+	const ${1} = new Warp.Query('${2}');
+
+snippet cwarpo
+	const ${1} = new Warp.Object('${2}');
+
+snippet func
+	function ${1}(${2}) {
+		${3}
+	}
+
+snippet afunc
+	async function ${1}(${2}) {
+		${3}
+	}
+
+snippet warpmodel
+	import WarpServer from 'warp-server';
+
+	module.exports = WarpServer.Model.create({
+		className: '${1}',
+		keys: {
+			viewable: [${2:}],
+			actionable: [$2],
+			pointers: {
+				${3}
+			}
+		}
+	});
+
+snippet warpfunc
+	import errorLogger from '../classes/function-api-error-logger';
+	import WarpServer from 'warp-server';
+	import { Warp } from '../api';
+
+	const name = '${1}';
+
+	/**
+	 * ${3:Warp function}
+	 */
+	async function ${2:}(req, res) {
+		${4}
+	}
+
+	module.exports = WarpServer.Function.create({
+		name,
+		action(req, res) {
+			$2(req, res).catch(err => {
+				errorLogger(name, err.stack);
+
+				res.error();
+			});
+		}
+	});
+	
+
+snippet warpocwd
+	Warp.Object.createWithoutData(${1}, '${2}')
+
+snippet sysout
+	console.log($1);
+
+snippet for
+	for (const $1 = ${2:start}; ${1:i} < ${3:end}; $1${4:++}) {
+		${0:/* code */}
+	}
+
