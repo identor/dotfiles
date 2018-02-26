@@ -8,19 +8,34 @@ set nocompatible
 filetype off
 
 " Vundle Settings
-set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-call vundle#begin('$HOME/vimfiles/bundle/')
+set rtp+=$HOME/.vim/bundle/Vundle.vim/
+call vundle#begin('$HOME/.vim/bundle/')
+
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugins here:
+" Plugins here
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'low-ghost/nerdtree-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dkprice/vim-easygrep'
+"Plugin 'jelera/vim-javascript-syntax'
+Plugin 'itchyny/lightline.vim'
+Plugin 'posva/vim-vue'
+"Typescript related plugins
 Plugin 'leafgarland/typescript-vim'
-Plugin 'jason0x43/vim-js-indent'
 Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jason0x43/vim-js-indent'
+"Surround
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+"Snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'godlygeek/tabular'
 
 call vundle#end()
 
@@ -31,6 +46,12 @@ syntax enable
 set nowrap
 set list
 set relativenumber
+set laststatus=2
+
+" Light line
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
 
 if has('win32')
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
@@ -44,8 +65,8 @@ endif
 set mouse=a
 
 " Set temp directory
-set backupdir=$HOME/vimfiles/tmp,.
-set directory=$HOME/vimfiles/tmp,.
+set backupdir=$HOME/.vimswap
+set directory=$HOME/.vimswap
 
 " Default indention settings
 set noet
@@ -53,14 +74,14 @@ set ts=4
 set sw=4
 set sts=4
 
-" Make backspace work like other apps
-set backspace=2
+" Backspace settings: work like most apps in insert mode
+set backspace=indent,eol,start
 
 set bg=dark
 
 " If gvim
 if has("gui_running")
-    if isdirectory(expand("$HOME/vimfiles/bundle/vim-colors-solarized"))
+    if isdirectory(expand("$HOME/.vim/bundle/vim-colors-solarized"))
         " Color scheme
         colo solarized
     endif
@@ -73,13 +94,13 @@ if has("gui_running")
 
     " Set gui font
     if has('unix')
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+        set guifont=DejaVu\ Sans\ Mono\ 9
     else
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
     endif
 else
     colo desert
-    if isdirectory(expand("$HOME/vimfiles/bundle/vim-colors-solarized"))
+    if isdirectory(expand("$HOME/.vim/bundle/vim-colors-solarized"))
         set t_Co=16
         let g:solarized_termcolors=256
         let g:solarized_termtrans=1
@@ -90,29 +111,6 @@ else
         colo solarized
     endif
 endif
-
-" Strip whitespace
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
-" Ctrlp ignore
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|(node_modules))$',
-  \ 'file': '\v\.(exe|so|dll|zip|gz|rar)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
-" Key mappings
-let mapleader=" "
-
-nnoremap <leader>l :tabnext<cr>
-nnoremap <leader>h :tabprev<cr>
-nnoremap <leader>e :NERDTreeToggle<cr>
-
-" Fugitive bindings
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gps :Gpush<cr>
-nnoremap <leader>gpl :Gpull<cr>
-nnoremap <leader>gc :Gcommit<cr>
 
 function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
@@ -125,4 +123,56 @@ function! StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfunction
+
+" cd to dir if opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | ene | exe 'cd' argv()[0] | echo '' | endif
+
+" Ctrlp ignore
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|(node_modules))$',
+  \ 'file': '\v\.(exe|so|dll|zip|gz|rar)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+
+let g:ctrlp_user_command = [
+  \ '.git/',
+  \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard'
+  \ ]
+
+"
+" KEYBINDINGS
+"
+
+" Map leader to unused key in normal mode
+let mapleader=" "
+
+" Tab navigation
+nnoremap <leader>l               :tabn<cr>
+nnoremap <leader>h               :tabp<cr>
+" Tabonly
+nnoremap <leader>to              :tabo<cr>
+
+" NERDTree
+nnoremap <leader>e               :NERDTreeToggle<cr>
+nnoremap <leader>qq              :qa!<cr>
+
+" Session management
+
+" Add/Save session
+nnoremap <leader>sa              :mksession $HOME/.vim/sessions/
+nnoremap <leader>ss              :mksession! $HOME/.vim/sessions/
+
+" Load session
+nnoremap <leader>sl              :source $HOME/.vim/sessions/
+
+" fugitive key bindings
+nnoremap <leader>gs              :Gstatus<cr>
+nnoremap <leader>gc              :Gcommit<cr>
+nnoremap <leader>gpl             :Gpull<cr>
+nnoremap <leader>gps             :Gpush<cr>
+
+" tabularize table
+nnoremap <leader>a\|              :Tab/\|<cr>
+
 
