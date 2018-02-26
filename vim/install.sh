@@ -13,6 +13,7 @@ mkdir -p $HOME/.vim/bundle
 
 echo "Copying files dir"
 cp -r $FILES_DIR/mclinica $HOME/.vim/.
+cp -r $FILES_DIR/snippets $HOME/.vim/.
 
 # Copy vimrc
 echo "Copying .vimrc"
