@@ -53,13 +53,8 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
 
-if has('win32')
-    set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-endif
-
-if has('unix')
-    set listchars=tab:>\ ,trail:.,extends:#,nbsp:.
-endif
+" List characters
+set listchars=tab:>\ ,trail:.,extends:#,nbsp:.
 
 " Enable mouse
 set mouse=a
