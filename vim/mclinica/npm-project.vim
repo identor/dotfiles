@@ -4,12 +4,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-"
-<<<<<<< 8ade8b9852bd58d79a004256a2b6032585100eab
-" Custom settings per file type
-=======
 " Settings per file type
->>>>>>> Added installer
 "
 
 " JavaScript
