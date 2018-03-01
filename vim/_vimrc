@@ -72,7 +72,7 @@ set sts=4
 " Backspace settings: work like most apps in insert mode
 set backspace=indent,eol,start
 
-set bg=dark
+set bg=light
 
 " If gvim
 if has("gui_running")
