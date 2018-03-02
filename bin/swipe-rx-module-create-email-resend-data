@@ -1,0 +1,31 @@
+#!/bin/env node
+
+const { writeFileSync } = require('fs')
+const { resolve } = require('path')
+
+// remove, current file and executing environment
+// first arg positioned @ index = 2
+const [filename] = process.argv.slice(2)
+
+if (!filename) {
+    throw new Error('swipe-rx-module-create-email-resend-data <filename>')
+}
+
+const gridRows = require(resolve(process.cwd(), filename))
+
+if (!gridRows.rows) {
+    throw new Error('file should be a valid heidsql grid export')
+}
+
+gridRows.rows.forEach(resendData => {
+    writeFileSync(`${resendData.id}.json`, JSON.stringify(
+        {
+            'user_progress_id': resendData.id,
+            'module_segment_id': resendData['module_segment_id'],
+            'details': JSON.parse(resendData['certificate_details'])
+        },
+        null,
+        '  '
+    ))
+})
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source ~/.env/sources/swipe-rx/media
+
+cd $SRC_DIR
+env DEBUG=http,pestle-rest:server \
+    PORT=3002 \
+    BASE_URL=http://localhost:3002/certificate \
+    SWIPE_RX_API_URL=http://localhost:3001/api/2 \
+nodemon -w app/ bin/www
+

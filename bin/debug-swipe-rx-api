@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Load utils
-source ~/.bin/common/echo-env-name
 source ~/.env/sources/swipe-rx/api
+
+# Load utils
+~/.bin/common/echo-env-name
 
 cd $SRC_DIR
 
+env PORT=3001 \
+    THROTTLE=1000 \
 nodemon --inspect bin/www
 

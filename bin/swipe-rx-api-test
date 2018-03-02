@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source ~/.env/sources/swipe-rx/api-test
+
+cd $SRC_DIR
+
