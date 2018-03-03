@@ -1,11 +1,8 @@
 " Recommended settings
-if has('unix')
-    set clipboard=unnamedplus
-else
-    set clipboard=unnamed
-endif
 set nocompatible
 filetype off
+
+set clipboard^=unnamed,unnamedplus
 
 " Vundle Settings
 set rtp+=$HOME/.vim/bundle/Vundle.vim/
