@@ -68,3 +68,16 @@ snippet for
 		${0:/* code */}
 	}
 
+snippet warpitest
+	import FunctionRunner from '../../common/function-runner';
+
+		const name = '${1}';
+		const tests = [];
+
+		describe('Integration: ' + name, function () {
+		/** Function runner tests **/ {
+			const runner = new FunctionRunner({ name, tests });
+			runner.runTests();
+		}
+	});
+
