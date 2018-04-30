@@ -10,6 +10,7 @@ echo "Creating default directories"
 mkdir -p $HOME/.vimswap
 mkdir -p $HOME/.vim/sessions
 mkdir -p $HOME/.vim/bundle
+mkdir -p $HOME/.vim/ftplugin
 
 echo "Copying files dir"
 cp -r $FILES_DIR/mclinica $HOME/.vim/.
