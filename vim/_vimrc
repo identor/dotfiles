@@ -84,9 +84,9 @@ if has("gui_running")
 
     " Set gui font
     if has('unix')
-        set guifont=DejaVu\ Sans\ Mono\ 9
+        set guifont=Consolas\ 9
     else
-        set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h9
+        set guifont=Consolas:h9
     endif
 else
     colo desert
