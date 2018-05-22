@@ -134,6 +134,14 @@ let g:ctrlp_user_command = [
   \ ]
 
 "
+" Default find settings
+"
+set wildignore+=node_modules/**
+set path+=src/**
+set path+=lib/**
+set wildmenu
+
+"
 " KEYBINDINGS
 "
 
