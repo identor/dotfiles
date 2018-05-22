@@ -76,6 +76,9 @@ set bg=dark
 
 " If gvim
 if has("gui_running")
+    set encoding=utf-8
+    set clipboard=unnamed
+
     if isdirectory(expand("$HOME/.vim/bundle/vim-colors-solarized"))
         " Color scheme
         colo solarized
