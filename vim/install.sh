@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VIMRC="`dirname $0`/_vimrc"
+VIMRC="`dirname $0`/vimrc"
 VUNDLE_URL=https://github.com/VundleVim/Vundle.vim
 VUNDLE_DIR=$HOME/.vim/bundle/Vundle.vim
 FILES_DIR=`dirname $0`
