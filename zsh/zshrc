@@ -74,14 +74,10 @@ fi
 export JAVA_HOME="$HOME/opt/java/bin/java"
 export PATH="$HOME/opt/java/bin:$PATH"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+DOTFILES=$HOME/scm/identor/dotfiles
+# Aliases
+alias cfgzsh="vim $DOTFILES/zsh/zshrc && $DOTFILES/zsh/install.sh && source $HOME/.zshrc"
+alias cfgvim="vim $DOTFILES/vim/vimrc && $DOTFILES/vim/install.sh"
 
 # bypass zsh glob pattern
 unsetopt nomatch
