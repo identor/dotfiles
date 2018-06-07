@@ -11,11 +11,13 @@ mkdir -p $HOME/.vimswap
 mkdir -p $HOME/.vim/sessions
 mkdir -p $HOME/.vim/bundle
 mkdir -p $HOME/.vim/ftplugin
+mkdir -p $HOME/.vim/syntax
 
 echo "Copying files dir"
 cp -r $FILES_DIR/mclinica $HOME/.vim/.
 cp -r $FILES_DIR/snippets $HOME/.vim/.
 cp -r $FILES_DIR/ftplugin $HOME/.vim/.
+cp -r $FILES_DIR/syntax $HOME/.vim/.
 
 # Copy vimrc
 echo "Copying .vimrc"

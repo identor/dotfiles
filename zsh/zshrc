@@ -78,6 +78,8 @@ DOTFILES=$HOME/scm/identor/dotfiles
 # Aliases
 alias cfgzsh="vim $DOTFILES/zsh/zshrc && $DOTFILES/zsh/install.sh && source $HOME/.zshrc"
 alias cfgvim="vim $DOTFILES/vim/vimrc && $DOTFILES/vim/install.sh"
+alias mysqlswrxcore="dotenv -e ~/.env/swrx/core/production mysql-warp"
+alias mysqlswrxmodule="dotenv -e ~/.env/swrx/module/production mysql-warp"
 
 # bypass zsh glob pattern
 unsetopt nomatch
