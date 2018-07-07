@@ -74,12 +74,37 @@ fi
 export JAVA_HOME="$HOME/opt/java/bin/java"
 export PATH="$HOME/opt/java/bin:$PATH"
 
-DOTFILES=$HOME/scm/identor/dotfiles
+SCM=$HOME/scm
+DOTFILES=$SCM/identor/dotfiles
+ENV=$HOME/.env
+
 # Aliases
+# Config: cfg
 alias cfgzsh="vim $DOTFILES/zsh/zshrc && $DOTFILES/zsh/install.sh && source $HOME/.zshrc"
 alias cfgvim="vim $DOTFILES/vim/vimrc && $DOTFILES/vim/install.sh"
-alias mysqlswrxcore="dotenv -e ~/.env/swrx/core/production mysql-warp"
-alias mysqlswrxmodule="dotenv -e ~/.env/swrx/module/production mysql-warp"
+alias cfgswrx="vim $SCM/mclinica/swiperx/cli/app/config.js"
+alias cfgx11="vim $DOTFILES/x11/xresources && $DOTFILES/x11/install.sh && xrdb -merge ~/.Xresources"
+
+# Git alias
+alias Gstatus="git status"
+alias Gpull="git pull"
+alias Gpush="git push"
+alias Gcommit="git commit"
+
+## Current projects: cproj
+DWEB=$SCM/danisonbuilders/www
+SWRX=$SCM/mclinica/swiperx
+
+alias cprojdweb="$DWEB; cd $DWEB; tmux -2 new -s $DWEB || tmux -2 a -t $DWEB"
+alias cprojswrx="$SWRX; cd $SWRX; tmux -2 new -s $SWRX || tmux -2 a -t $SWRX"
+
+# Mysql
+alias mysqlswrxcore="dotenv -e $ENV/swrx/core/production mysql-warp"
+alias mysqlswrxcorestg="dotenv -e $ENV/swrx/core/staging mysql-warp"
+alias mysqlswrxmodule="dotenv -e $ENV/swrx/module/production mysql-warp"
+alias mysqlswrxmodulestg="dotenv -e $ENV/swrx/module/staging mysql-warp"
+
+alias notes="cd $SCM/identor/notes; vim"
 
 # bypass zsh glob pattern
 unsetopt nomatch
@@ -98,3 +123,7 @@ export PATH="$HOME/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Merge ~/.Xresources
+xrdb -merge ~/.Xresources
+

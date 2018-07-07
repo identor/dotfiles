@@ -35,6 +35,9 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'godlygeek/tabular'
 Plugin 'moll/vim-node'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+" Plugin 'arkwright/vim-whiplash' " Don't need per project config for now
 
 call vundle#end()
 
@@ -76,6 +79,7 @@ if has("gui_running")
     set encoding=utf-8
     if isdirectory(expand("$HOME/.vim/bundle/vim-colors-solarized"))
         " Color scheme
+        set bg=light
         colo solarized
     endif
 
@@ -87,25 +91,29 @@ if has("gui_running")
 
     " Set gui font
     if has('unix')
-        set guifont=Consolas\ 9
+        set guifont=DejaVu\ Sans\ Mono\ 12
+        set guifontwide=DejaVu\ Sans\ Mono\ 12
     else
         set guifont=Consolas:h9
     endif
 else
-    colo desert
-    if isdirectory(expand("$HOME/.vim/bundle/vim-colors-solarized"))
-        set t_Co=16
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="normal"
-        let g:solarized_visibility="normal"
+    if has('unix')
+        if isdirectory(expand("$HOME/.vim/bundle/vim-colors-solarized"))
+            set t_Co=256
+            let g:solarized_termcolors=256
+            let g:solarized_termtrans=1
+            let g:solarized_contrast="normal"
+            let g:solarized_visibility="normal"
 
-        " Color scheme
-        colo solarized
+            " Color scheme
+            set bg=light
+            colo solarized
+        endif
+    else
+        set bg=dark
+        colo desert
     endif
 endif
-
-set bg=light
 
 function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
@@ -146,6 +154,10 @@ set wildmenu
 " Commenter
 let g:NERDSpaceDelims = 1
 
+" Whiplash
+let g:WhiplashProjectsDir = "$HOME/projects"
+let g:WhiplashCommandName = "Project"
+
 "
 " KEYBINDINGS
 "
@@ -181,4 +193,6 @@ nnoremap <leader>gps             :Gpush<cr>
 " tabularize table
 nnoremap <leader>a\|              :Tab/\|<cr>
 
+" Buffer delete
+nnoremap <leader>d                :bd<cr>
 

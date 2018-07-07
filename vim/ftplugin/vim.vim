@@ -1,0 +1,2 @@
+" vim config
+setlocal et
