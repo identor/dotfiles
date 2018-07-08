@@ -106,6 +106,10 @@ alias mysqlswrxmodulestg="dotenv -e $ENV/swrx/module/staging mysql-warp"
 
 alias notes="cd $SCM/identor/notes; vim"
 
+# Use python 3
+alias python=python3
+alias pip=pip3
+
 # bypass zsh glob pattern
 unsetopt nomatch
 
@@ -118,7 +122,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # . <(npm completion)
 
 ### Add ~/bin to PATH
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
