@@ -75,8 +75,8 @@ export JAVA_HOME="$HOME/opt/java/bin/java"
 export PATH="$HOME/opt/java/bin:$PATH"
 
 SCM=$HOME/scm
-DOTFILES=$SCM/identor/dotfiles
-ENV=$HOME/.env
+export DOTFILES=$SCM/identor/dotfiles
+export ENV=$HOME/.env
 
 # Aliases
 # Config: cfg

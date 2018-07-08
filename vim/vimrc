@@ -38,6 +38,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 " Plugin 'arkwright/vim-whiplash' " Don't need per project config for now
+Plugin 'vim-scripts/zoom.vim'
 
 call vundle#end()
 
@@ -191,8 +192,8 @@ nnoremap <leader>gpl             :Gpull<cr>
 nnoremap <leader>gps             :Gpush<cr>
 
 " tabularize table
-nnoremap <leader>a\|              :Tab/\|<cr>
+nnoremap <leader>a\|             :Tab/\|<cr>
 
 " Buffer delete
-nnoremap <leader>d                :bd<cr>
+nnoremap <leader>d               :bd<cr>
 
