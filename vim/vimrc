@@ -1,4 +1,11 @@
 call plug#begin('~/.vim/plugged')
+    Plug 'tpope/vim-fugitive'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'dkprice/vim-easygrep'
+    Plug 'itchyny/lightline.vim'
+    Plug 'mfukar/robotframework-vim'
+    Plug 'junegunn/vim-easy-align'
+
     " NERD
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'scrooloose/nerdcommenter'
@@ -17,13 +24,6 @@ call plug#begin('~/.vim/plugged')
 
     " Colorscheme
     Plug 'altercation/vim-colors-solarized'
-
-    Plug 'tpope/vim-fugitive'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'dkprice/vim-easygrep'
-    Plug 'itchyny/lightline.vim'
-    Plug 'mfukar/robotframework-vim'
-    Plug 'junegunn/vim-easy-align'
 
     "Surround
     Plug 'tpope/vim-unimpaired'
@@ -83,7 +83,7 @@ let solarized_dir="$HOME/.vim/plugged/vim-colors-solarized"
 
 if has('windows') && !has('unix') && !has('gui_running')
     set bg=dark
-    colo default
+    colo torte
 elseif isdirectory(expand(solarized_dir))
     " Color scheme
     set t_Co=256
@@ -94,7 +94,7 @@ elseif isdirectory(expand(solarized_dir))
     let g:solarized_visibility='normal'
     colo solarized
 else
-    colo solarized
+    colo default
 endif
 
 " If gvim
