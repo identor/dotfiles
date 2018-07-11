@@ -72,18 +72,33 @@ set ts=4
 set sw=4
 set sts=4
 
+" Encoding settings
+set encoding=utf-8
+
 " Backspace settings: work like most apps in insert mode
 set backspace=indent,eol,start
 
-" If gvim
-if has("gui_running")
-    set encoding=utf-8
-    if isdirectory(expand("$HOME/.vim/bundle/vim-colors-solarized"))
-        " Color scheme
-        set bg=light
-        colo solarized
-    endif
+" Color settings
+let solarized_dir="$HOME/.vim/plugged/vim-colors-solarized"
 
+if has('windows') && !has('unix') && !has('gui_running')
+    set bg=dark
+    colo default
+elseif isdirectory(expand(solarized_dir))
+    " Color scheme
+    set t_Co=256
+    set bg=light
+    let g:solarized_termcolors=256
+    let g:solarized_termtrans=1
+    let g:solarized_contrast='normal'
+    let g:solarized_visibility='normal'
+    colo solarized
+else
+    colo solarized
+endif
+
+" If gvim
+if has('gui_running')
     " Remove toolbars
     set guioptions-=T  "remove toolbar
     set guioptions-=m  "remove menu bar
@@ -97,30 +112,13 @@ if has("gui_running")
     else
         set guifont=Consolas:h9
     endif
-else
-    if has('unix')
-        if isdirectory(expand("$HOME/.vim/bundle/vim-colors-solarized"))
-            set t_Co=256
-            let g:solarized_termcolors=256
-            let g:solarized_termtrans=1
-            let g:solarized_contrast="normal"
-            let g:solarized_visibility="normal"
-
-            " Color scheme
-            set bg=light
-            colo solarized
-        endif
-    else
-        set bg=dark
-        colo desert
-    endif
 endif
 
 function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
     let _s=@/
-    let l = line(".")
-    let c = col(".")
+    let l = line('.')
+    let c = col('.')
     " do the business:
     %s/\s\+$//e
     " clean up: restore previous search history, and cursor position
