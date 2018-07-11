@@ -1,47 +1,44 @@
+call plug#begin('~/.vim/plugged')
+    " NERD
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'low-ghost/nerdtree-fugitive'
+
+    " JavaScript
+    Plug 'pangloss/vim-javascript'
+    Plug 'mxw/vim-jsx'
+    Plug 'moll/vim-node'
+    Plug 'posva/vim-vue'
+
+    "Typescript
+    Plug 'leafgarland/typescript-vim'
+    Plug 'Quramy/vim-js-pretty-template'
+    Plug 'jason0x43/vim-js-indent'
+
+    " Colorscheme
+    Plug 'altercation/vim-colors-solarized'
+
+    Plug 'tpope/vim-fugitive'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'dkprice/vim-easygrep'
+    Plug 'itchyny/lightline.vim'
+    Plug 'mfukar/robotframework-vim'
+    Plug 'junegunn/vim-easy-align'
+
+    "Surround
+    Plug 'tpope/vim-unimpaired'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+
+    "Snippets
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'tomtom/tlib_vim'
+    Plug 'garbas/vim-snipmate'
+call plug#end()
+
 " Recommended settings
 set nocompatible
 filetype off
-
-set clipboard^=unnamed,unnamedplus
-
-" Vundle Settings
-set rtp+=$HOME/.vim/bundle/Vundle.vim/
-call vundle#begin('$HOME/.vim/bundle/')
-
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugins here
-Plugin 'tpope/vim-fugitive'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'low-ghost/nerdtree-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'dkprice/vim-easygrep'
-"Plugin 'jelera/vim-javascript-syntax'
-Plugin 'itchyny/lightline.vim'
-Plugin 'posva/vim-vue'
-"Typescript related plugins
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'jason0x43/vim-js-indent'
-"Surround
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-"Snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'godlygeek/tabular'
-Plugin 'moll/vim-node'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-" Plugin 'arkwright/vim-whiplash' " Don't need per project config for now
-" Plugin 'vim-scripts/zoom.vim' " Not working
-Plugin 'mfukar/robotframework-vim'
-
-call vundle#end()
 
 " Syntax and plugin settings
 filetype plugin indent on
@@ -51,6 +48,8 @@ set nowrap
 set list
 set relativenumber
 set laststatus=2
+
+set clipboard^=unnamed,unnamedplus
 
 " Light line
 let g:lightline = {
@@ -93,8 +92,8 @@ if has("gui_running")
 
     " Set gui font
     if has('unix')
-        set guifont=DejaVu\ Sans\ Mono\ 10
-        set guifontwide=DejaVu\ Sans\ Mono\ 10
+        set guifont=DejaVu\ Sans\ Mono\ 9
+        set guifontwide=DejaVu\ Sans\ Mono\ 9
     else
         set guifont=Consolas:h9
     endif
@@ -168,33 +167,34 @@ let g:WhiplashCommandName = "Project"
 let mapleader=" "
 
 " Tab navigation
-nnoremap <leader>l               :tabn<cr>
-nnoremap <leader>h               :tabp<cr>
+nnoremap <leader>l                  :tabn<cr>
+nnoremap <leader>h                  :tabp<cr>
 " Tabonly
-nnoremap <leader>to              :tabo<cr>
+nnoremap <leader>to                 :tabo<cr>
 
 " NERDTree
-nnoremap <leader>e               :NERDTreeToggle<cr>
-nnoremap <leader>qq              :qa!<cr>
+nnoremap <leader>e                  :NERDTreeToggle<cr>
+nnoremap <leader>qq                 :qa!<cr>
 
 " Session management
 
 " Add/Save session
-nnoremap <leader>sa              :mksession $HOME/.vim/sessions/
-nnoremap <leader>ss              :mksession! $HOME/.vim/sessions/
+nnoremap <leader>sa                 :mksession $HOME/.vim/sessions/
+nnoremap <leader>ss                 :mksession! $HOME/.vim/sessions/
 
 " Load session
-nnoremap <leader>sl              :source $HOME/.vim/sessions/
+nnoremap <leader>sl                 :source $HOME/.vim/sessions/
 
 " fugitive key bindings
-nnoremap <leader>gs              :Gstatus<cr>
-nnoremap <leader>gc              :Gcommit<cr>
-nnoremap <leader>gpl             :Gpull<cr>
-nnoremap <leader>gps             :Gpush<cr>
-
-" tabularize table
-nnoremap <leader>a\|             :Tab/\|<cr>
+nnoremap <leader>gs                 :Gstatus<cr>
+nnoremap <leader>gc                 :Gcommit<cr>
+nnoremap <leader>gpl                :Gpull<cr>
+nnoremap <leader>gps                :Gpush<cr>
 
 " Buffer delete
-nnoremap <leader>d               :bd<cr>
+nnoremap <leader>d                  :bd<cr>
+
+" Easy align
+nmap ga                             <Plug>(EasyAlign)
+xmap ga                             <Plug>(EasyAlign)
 

@@ -84,6 +84,7 @@ alias cfgzsh="vim $DOTFILES/zsh/zshrc && $DOTFILES/zsh/install.sh && source $HOM
 alias cfgvim="vim $DOTFILES/vim/vimrc && $DOTFILES/vim/install.sh"
 alias cfgswrx="vim $SCM/mclinica/swiperx/cli/app/config.js"
 alias cfgx11="vim $DOTFILES/x11/xresources && $DOTFILES/x11/install.sh && xrdb -merge ~/.Xresources"
+alias cpd='echo -en `pwd`/ | xclip -selection clipboard'
 
 # Git alias
 alias Gstatus="git status"
