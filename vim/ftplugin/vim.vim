@@ -1,2 +1,2 @@
 " vim config
-setlocal et
+setl et

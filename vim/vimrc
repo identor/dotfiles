@@ -19,7 +19,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'moll/vim-node'
     Plug 'posva/vim-vue'
 
-    "Typescript
+    " Typescript
     Plug 'leafgarland/typescript-vim'
     Plug 'Quramy/vim-js-pretty-template'
     Plug 'jason0x43/vim-js-indent'
@@ -39,21 +39,13 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " My defaults
-se nocompatible mouse=a nowrap relativenumber
-
-" Default indention settings
-se noet ts=4 sw=4 sts=4
+se nocompatible mouse=a nowrap relativenumber list ts=4 sw=4 sts=4
 
 " Set temp directory
 se backupdir=$HOME/.vimswap directory=$HOME/.vimswap
 
-"
 " Default find settings
-"
 se wildignore+=node_modules/** path+=src/** path+=lib/**
-
-" List characters
-" set listchars=tab:>\ ,trail:.,extends:#,nbsp:.
 
 " Color settings
 let solarized_dir="$HOME/.vim/plugged/vim-colors-solarized"
@@ -70,17 +62,12 @@ elseif isdirectory(expand(solarized_dir))
     let g:solarized_contrast = 'normal'
     let g:solarized_visibility = 'normal'
     colo solarized
-else
-    colo default
 endif
 
 " Light line
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
-
-" sql.vim config
-let g:sql_type_default = 'mysql'
 
 " If gvim
 if has('gui_running')

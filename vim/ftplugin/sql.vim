@@ -1,1 +1,3 @@
-set ts=4 sw=4 sts=4 et
+let g:sql_type_default = 'mysql'
+setl et
+

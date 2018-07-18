@@ -1,6 +1,2 @@
-" Json configuration
-set et
-set sw=2
-set sts=2
-set ts=2
+setl et sts=2 sw=2 ts=2
 

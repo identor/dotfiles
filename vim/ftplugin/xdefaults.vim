@@ -1,3 +1,3 @@
 " Default
+setl et
 
-setlocal et

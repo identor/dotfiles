@@ -1,6 +1,2 @@
-" Javascript Configurations
-setlocal et
-setlocal ts=2
-setlocal sw=2
-setlocal sts=2
+setl et sts=2 sw=2 ts=2
 
