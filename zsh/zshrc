@@ -105,7 +105,7 @@ alias mysqlswrxcorestg="dotenv -e $ENV/swrx/core/staging mysql-warp"
 alias mysqlswrxmodule="dotenv -e $ENV/swrx/module/production mysql-warp"
 alias mysqlswrxmodulestg="dotenv -e $ENV/swrx/module/staging mysql-warp"
 
-alias notes="cd $SCM/identor/notes; vim"
+alias notes="vim +cd $SCM/identor/notes"
 
 # Use python 3
 alias python=python3

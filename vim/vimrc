@@ -1,10 +1,12 @@
 call plug#begin('~/.vim/plugged')
+    Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-fugitive'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'dkprice/vim-easygrep'
     Plug 'itchyny/lightline.vim'
     Plug 'mfukar/robotframework-vim'
     Plug 'junegunn/vim-easy-align'
+    Plug 'joereynolds/SQHell.vim'
 
     " NERD
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -31,52 +33,27 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
 
     "Snippets
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
+    Plug 'MarcWeber/vim-addon-mw-utils'     " Required by snipmate
+    Plug 'tomtom/tlib_vim'                  " Required by snipmate
     Plug 'garbas/vim-snipmate'
 call plug#end()
 
-" Recommended settings
-set nocompatible
-filetype off
-
-" Syntax and plugin settings
-filetype plugin indent on
-syntax enable
-
-set nowrap
-set list
-set relativenumber
-set laststatus=2
-
-set clipboard^=unnamed,unnamedplus
-
-" Light line
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
-
-" List characters
-set listchars=tab:>\ ,trail:.,extends:#,nbsp:.
-
-" Enable mouse
-set mouse=a
-
-" Set temp directory
-set backupdir=$HOME/.vimswap
-set directory=$HOME/.vimswap
+" My defaults
+se nocompatible mouse=a nowrap relativenumber
 
 " Default indention settings
-set noet
-set ts=4
-set sw=4
-set sts=4
+se noet ts=4 sw=4 sts=4
 
-" Encoding settings
-set encoding=utf-8
+" Set temp directory
+se backupdir=$HOME/.vimswap directory=$HOME/.vimswap
 
-" Backspace settings: work like most apps in insert mode
-set backspace=indent,eol,start
+"
+" Default find settings
+"
+se wildignore+=node_modules/** path+=src/** path+=lib/**
+
+" List characters
+" set listchars=tab:>\ ,trail:.,extends:#,nbsp:.
 
 " Color settings
 let solarized_dir="$HOME/.vim/plugged/vim-colors-solarized"
@@ -88,14 +65,22 @@ elseif isdirectory(expand(solarized_dir))
     " Color scheme
     set t_Co=256
     set bg=light
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-    let g:solarized_contrast='normal'
-    let g:solarized_visibility='normal'
+    let g:solarized_termcolors = 256
+    let g:solarized_termtrans = 1
+    let g:solarized_contrast = 'normal'
+    let g:solarized_visibility = 'normal'
     colo solarized
 else
     colo default
 endif
+
+" Light line
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
+
+" sql.vim config
+let g:sql_type_default = 'mysql'
 
 " If gvim
 if has('gui_running')
@@ -114,22 +99,6 @@ if has('gui_running')
     endif
 endif
 
-function! StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line('.')
-    let c = col('.')
-    " do the business:
-    %s/\s\+$//e
-    " clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-" cd to dir if opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | ene | exe 'cd' argv()[0] | echo '' | endif
-
 " Ctrlp ignore
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.(git|hg|svn)|(node_modules))$',
@@ -142,27 +111,15 @@ let g:ctrlp_user_command = [
   \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard'
   \ ]
 
-"
-" Default find settings
-"
-set wildignore+=node_modules/**
-set path+=src/**
-set path+=lib/**
-set wildmenu
-
 " Commenter
 let g:NERDSpaceDelims = 1
-
-" Whiplash
-let g:WhiplashProjectsDir = "$HOME/projects"
-let g:WhiplashCommandName = "Project"
 
 "
 " KEYBINDINGS
 "
 
 " Map leader to unused key in normal mode
-let mapleader=" "
+let mapleader = ' '
 
 " Tab navigation
 nnoremap <leader>l                  :tabn<cr>
