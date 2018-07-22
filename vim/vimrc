@@ -38,6 +38,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'garbas/vim-snipmate'
 call plug#end()
 
+" Set clipboard
+se clipboard=unnamed,unnamedplus
+
 " My defaults
 se nocompatible mouse=a nowrap relativenumber list ts=4 sw=4 sts=4
 
