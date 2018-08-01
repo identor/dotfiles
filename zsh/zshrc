@@ -51,13 +51,29 @@ alias cprojeulr="$EULR; cd $EULR; tmux -2 new -s $EULR || tmux -2 a -t $EULR"
 # Dotenv
 alias de="dotenv -e"
 
+# Supported variables
+# $DB_DEFAULT - default database
+# $DB_PASSWORD - password
+# $DB_HOST - hostname
+# $DB_USER - username
+function mysqlenv () {
+    env=$1
+    shift
+
+    # Don't expose variables exported via `export` call
+    (
+        export $(cat $env | xargs) &&
+        mysql -u$DB_USER -p$DB_PASSWORD -h$DB_HOST $DB_DEFAULT $@
+    )
+}
+
 # Mysql
-alias mysqlswrxcore="dotenv -e $ENV/swrx/core/production mysql-warp"
-alias mysqlswrxcorestg="dotenv -e $ENV/swrx/core/staging mysql-warp"
-alias mysqlswrxmodule="dotenv -e $ENV/swrx/module/production mysql-warp"
-alias mysqlswrxmodulestg="dotenv -e $ENV/swrx/module/staging mysql-warp"
-alias swiperxstg="dotenv -e $SWRX_ENV/cli/staging swiperx"
-alias swiperxlocal="dotenv -e $SWRX_ENV/cli/local swiperx"
+alias mysqlswrxcore="mysqlenv $ENV/swrx/core/production"
+alias mysqlswrxcorestg="mysqlenv $ENV/swrx/core/staging "
+alias mysqlswrxmodule="mysqlenv $ENV/swrx/module/production "
+alias mysqlswrxmodulestg="mysqlenv $ENV/swrx/module/staging "
+alias swiperxstg="mysqlenv $SWRX_ENV/cli/staging swiperx"
+alias swiperxlocal="mysqlenv $SWRX_ENV/cli/local swiperx"
 
 alias notes="vim +cd $SCM/identor/notes"
 
