@@ -51,6 +51,9 @@ alias cprojeulr="$EULR; cd $EULR; tmux -2 new -s $EULR || tmux -2 a -t $EULR"
 # Dotenv
 alias de="dotenv -e"
 
+# Xclip
+alias xclipc="xclip -sel clip"
+
 # Supported variables
 # $DB_DEFAULT - default database
 # $DB_PASSWORD - password
@@ -72,8 +75,10 @@ alias mysqlswrxcore="mysqlenv $ENV/swrx/core/production"
 alias mysqlswrxcorestg="mysqlenv $ENV/swrx/core/staging "
 alias mysqlswrxmodule="mysqlenv $ENV/swrx/module/production "
 alias mysqlswrxmodulestg="mysqlenv $ENV/swrx/module/staging "
-alias swiperxstg="mysqlenv $SWRX_ENV/cli/staging swiperx"
-alias swiperxlocal="mysqlenv $SWRX_ENV/cli/local swiperx"
+
+# SwipeRx CLI
+alias swiperxstg="de $SWRX_ENV/cli/staging swiperx"
+alias swiperxlocal="de $SWRX_ENV/cli/local swiperx"
 
 alias notes="vim +cd $SCM/identor/notes"
 
