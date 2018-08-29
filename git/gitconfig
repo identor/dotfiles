@@ -9,3 +9,4 @@
 	co = checkout
 	unstage = reset HEAD --
 	ci = commit
+	st = status
