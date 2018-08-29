@@ -86,6 +86,9 @@ alias notes="vim +cd $SCM/identor/notes"
 alias python=python3
 alias pip=pip3
 
+# Date now Reverse timestamp
+alias datenow="date +%Y%m%d%H%M"
+
 # bypass zsh glob pattern
 unsetopt nomatch
 
