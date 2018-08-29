@@ -1,0 +1,11 @@
+[user]
+	name = Irvin Torcuato
+	email = irvin@wiwi.ninja
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = 0
+[alias]
+	co = checkout
+	unstage = reset HEAD --
+	ci = commit
