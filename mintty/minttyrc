@@ -1,0 +1,54 @@
+BoldAsFont=-1
+Locale=en_US
+Charset=UTF-8
+Font=Consolas
+FontHeight=9
+
+ForegroundColour=101,123,131
+BackgroundColour=253,246,227
+CursorColour=0,64,64
+Black=7,54,66
+BoldBlack=0,43,54
+Red=220,50,47
+BoldRed=203,75,22
+Green=133,153,0
+BoldGreen=88,110,117
+Yellow=181,137,0
+BoldYellow=101,123,131
+Blue=38,139,210
+BoldBlue=131,148,150
+Magenta=211,54,130
+BoldMagenta=108,113,196
+Cyan=42,161,152
+BoldCyan=147,161,161
+White=238,232,213
+BoldWhite=253,246,227
+
+echo -ne   '\eP\e]10;#839496\a'  # Foreground   -> base0
+echo -ne   '\eP\e]11;#002B36\a'  # Background   -> base03
+
+echo -ne   '\eP\e]12;#898966\a'  # Cursor       -> gray
+
+echo -ne  '\eP\e]4;0;#073642\a'  # black        -> Base02
+echo -ne  '\eP\e]4;8;#002B36\a'  # bold black   -> Base03
+echo -ne  '\eP\e]4;1;#DC322F\a'  # red          -> red
+echo -ne  '\eP\e]4;9;#CB4B16\a'  # bold red     -> orange
+echo -ne  '\eP\e]4;2;#859900\a'  # green        -> green
+echo -ne '\eP\e]4;10;#586E75\a'  # bold green   -> base01 *
+echo -ne  '\eP\e]4;3;#B58900\a'  # yellow       -> yellow
+echo -ne '\eP\e]4;11;#657B83\a'  # bold yellow  -> base00 *
+echo -ne  '\eP\e]4;4;#268BD2\a'  # blue         -> blue
+echo -ne '\eP\e]4;12;#839496\a'  # bold blue    -> base0 *
+echo -ne  '\eP\e]4;5;#D33682\a'  # magenta      -> magenta
+echo -ne '\eP\e]4;13;#6C71C4\a'  # bold magenta -> violet
+echo -ne  '\eP\e]4;6;#2AA198\a'  # cyan         -> cyan
+echo -ne '\eP\e]4;14;#93A1A1\a'  # bold cyan    -> base1 *
+echo -ne  '\eP\e]4;7;#EEE8D5\a'  # white        -> Base2
+echo -ne '\eP\e]4;15;#FDF6E3\a'  # bold white   -> Base3
+MiddleClickAction=void
+RightClickAction=paste
+Columns=80
+CursorType=block
+Term=xterm-256color
+Scrollbar=none
+
