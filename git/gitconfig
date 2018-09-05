@@ -10,3 +10,4 @@
 	unstage = reset HEAD --
 	ci = commit
 	st = status
+	dc = checkout --

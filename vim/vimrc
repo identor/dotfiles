@@ -59,7 +59,7 @@ if has('windows') && !has('unix') && !has('gui_running')
 elseif isdirectory(expand(solarized_dir))
     " Color scheme
     set t_Co=256
-    set bg=light
+    set bg=dark
     let g:solarized_termcolors = 256
     let g:solarized_termtrans = 1
     let g:solarized_contrast = 'normal'
