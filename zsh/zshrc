@@ -38,9 +38,9 @@ alias Gpush="git push"
 alias Gcommit="git commit"
 
 ## Current projects: cproj
-DWEB=$SCM/danisonbuilders/www
-SWRX=$SCM/mclinica/swiperx
-EULR=$SCM/identor/project-euler
+export DWEB=$SCM/danisonbuilders/www
+export SWRX=$SCM/mclinica/swiperx
+export EULR=$SCM/identor/project-euler
 
 export SWRX_ENV=$SWRX/env/swrx
 

@@ -36,7 +36,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'MarcWeber/vim-addon-mw-utils'     " Required by snipmate
     Plug 'tomtom/tlib_vim'                  " Required by snipmate
     Plug 'garbas/vim-snipmate'
+
+    "Prettier
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
+
+" Set shell
+se shell=/bin/zsh
 
 " Set clipboard
 se clipboard=unnamed,unnamedplus
