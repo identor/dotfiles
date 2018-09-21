@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mfukar/robotframework-vim'
     Plug 'junegunn/vim-easy-align'
     Plug 'joereynolds/SQHell.vim'
+    Plug 'tpope/vim-abolish'
 
     " NERD
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -144,6 +145,8 @@ nnoremap <leader>gps                :Gpush<cr>
 
 " Buffer delete
 nnoremap <leader>d                  :bd<cr>
+nnoremap <C-c>                      <Esc>
+imap <C-c>                          <Esc>
 
 " Easy align
 nmap ga                             <Plug>(EasyAlign)
