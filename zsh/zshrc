@@ -41,12 +41,18 @@ alias Gcommit="git commit"
 export DWEB=$SCM/danisonbuilders/www
 export SWRX=$SCM/mclinica/swiperx
 export EULR=$SCM/identor/project-euler
+export JS30=$SCM/identor-javascript30
 
 export SWRX_ENV=$SWRX/env/swrx
 
-alias cprojdweb="$DWEB; cd $DWEB; tmux -2 new -s $DWEB || tmux -2 a -t $DWEB"
-alias cprojswrx="$SWRX; cd $SWRX; tmux -2 new -s $SWRX || tmux -2 a -t $SWRX"
-alias cprojeulr="$EULR; cd $EULR; tmux -2 new -s $EULR || tmux -2 a -t $EULR"
+function cproj() {
+    $1; cd $1; tmux -2 new -s $1 || tmux -2 a -t $1
+}
+
+alias cprojdweb="cproj $DWEB"
+alias cprojswrx="cproj $SWRX"
+alias cprojeulr="cproj $EULR"
+alias cprojjs30="cproj $JS30"
 
 # Dotenv
 alias de="dotenv -e"
