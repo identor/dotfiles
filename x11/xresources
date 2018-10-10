@@ -58,10 +58,17 @@
 *color15:                 S_base3
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-!! urxvt font definitions
 URxvt.perl-lib:             $HOME/.urxvt/ext
 URxvt.perl-ext-common:      font-size
-URxvt*font:                 xft:DejaVu Sans Mono:size=9
+
+!! urxvt font definitions
+URxvt.saveLines:            10000
+URxvt.xftAntialias:         true
+URxvt.font:                 xft:inconsolata:pixelsize=12:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+URxvt.boldFont:             xft:inconsolata:pixelsize=12:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+URxvt.italicFont:           xft:inconsolata:pixelsize=12:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+URxvt.bolditalicFont:       xft:inconsolata:pixelsize=12:antialias=true:hinting=true, xft:dejavu sans mono:pixelsize=13:antialias=true,hinting=true
+
 URxvt.scrollBar:            false
 
 URxvt.keysym.C-Up:          font-size:increase

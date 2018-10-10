@@ -4,7 +4,9 @@ ZSH_THEME="simple"
 plugins=(git)
 
 # User configuration
-export PATH="$HOME/.composer/vendor/bin:$HOME/opt/node/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+PATH="$HOME/.composer/vendor/bin:$HOME/opt/node/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+PATH="$PATH:$HOME/.deno/bin"
+export PATH
 
 source $ZSH/oh-my-zsh.sh
 
@@ -22,6 +24,7 @@ export PATH="$HOME/opt/java/bin:$PATH"
 SCM=$HOME/scm
 export DOTFILES=$SCM/identor/dotfiles
 export ENV=$HOME/.env
+export KUBECONFIG=$HOME/.config/kube
 
 # Aliases
 # Config: cfg
@@ -49,10 +52,17 @@ function cproj() {
     $1; cd $1; tmux -2 new -s $1 || tmux -2 a -t $1
 }
 
+# run projects
 alias cprojdweb="cproj $DWEB"
 alias cprojswrx="cproj $SWRX"
 alias cprojeulr="cproj $EULR"
 alias cprojjs30="cproj $JS30"
+
+# k8s
+alias k="kubectl"
+
+# fzf vim
+alias vimf='vim `fzf`'
 
 # Dotenv
 alias de="dotenv -e"
@@ -109,6 +119,12 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# fzf - enable fuzzy file search bindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Source environment variables
+[ -f ~/.env/secret ] && source ~/.env/secret
 
 # Merge ~/.Xresources
 xrdb -merge ~/.Xresources
