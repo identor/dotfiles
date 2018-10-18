@@ -20,15 +20,32 @@ fi
 # $DB_PASSWORD - password
 # $DB_HOST - hostname
 # $DB_USER - username
-function mysqlenv () {
+function dbenv () {
     env=$1
+    shift
+
+    prog=$1
     shift
 
     # Don't expose variables exported via `export` call
     (
         export $(cat $env | xargs) &&
-        mysql -u$DB_USER -p$DB_PASSWORD -h$DB_HOST $DB_DEFAULT $@
+        $prog -u$DB_USER -p$DB_PASSWORD -h$DB_HOST $DB_DEFAULT $@
     )
+}
+
+function mysqlenv () {
+    env=$1
+    shift
+
+    dbenv $env mysql $@
+}
+
+function mysqldumpenv () {
+    env=$1
+    shift
+
+    dbenv $env mysqldump $@
 }
 
 function cproj() {
@@ -60,6 +77,7 @@ alias pip=pip3
 
 # Date now Reverse timestamp
 alias datenow="date +%Y%m%d%H%M"
+alias today="date +%Y%m%d"
 
 # bypass zsh glob pattern
 unsetopt nomatch
