@@ -82,7 +82,7 @@ alias today="date +%Y%m%d"
 # bypass zsh glob pattern
 unsetopt nomatch
 
-source ~/.profile
+[ -f ~/.profile ] && source ~/.profile
 
 # fzf - enable fuzzy file search bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
