@@ -72,8 +72,8 @@ alias de="dotenv -e"
 alias xclipc="xclip -sel clip"
 
 # Use python 3
-alias python=python3
-alias pip=pip3
+alias python='/usr/bin/python3'
+alias pip='/usr/bin/python3 -m pip'
 
 # Date now Reverse timestamp
 alias datenow="date +%Y%m%d%H%M"

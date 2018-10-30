@@ -40,6 +40,9 @@ call plug#begin('~/.vim/plugged')
 
     "Prettier
     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+    "Syntax checker
+    Plug 'w0rp/ale'
 call plug#end()
 
 " Set shell
