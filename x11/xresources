@@ -33,29 +33,34 @@
 ! the color assignment statement with its name. Example:
 !
 ! URxvt*background:            S_base03
-*background:              S_base03
-*foreground:              S_base0
-*fading:                  40
-*fadeColor:               S_base03
-*cursorColor:             S_base1
-*pointerColorBackground:  S_base01
-*pointerColorForeground:  S_base1
-*color0:                  S_base02
-*color1:                  S_red
-*color2:                  S_green
-*color3:                  S_yellow
-*color4:                  S_blue
-*color5:                  S_magenta
-*color6:                  S_cyan
-*color7:                  S_base2
-*color9:                  S_orange
-*color8:                  S_base03
-*color10:                 S_base01
-*color11:                 S_base00
-*color12:                 S_base0
-*color13:                 S_violet
-*color14:                 S_base1
-*color15:                 S_base3
+!
+! Terminal Font Declaration
+#define termfont            xft:Inconsolata Nerd Font Mono:pixelsize=13
+
+!! Configuration
+*background:                S_base03
+*foreground:                S_base0
+*fading:                    40
+*fadeColor:                 S_base03
+*cursorColor:               S_base1
+*pointerColorBackground:    S_base01
+*pointerColorForeground:    S_base1
+*color0:                    S_base02
+*color1:                    S_red
+*color2:                    S_green
+*color3:                    S_yellow
+*color4:                    S_blue
+*color5:                    S_magenta
+*color6:                    S_cyan
+*color7:                    S_base2
+*color9:                    S_orange
+*color8:                    S_base03
+*color10:                   S_base01
+*color11:                   S_base00
+*color12:                   S_base0
+*color13:                   S_violet
+*color14:                   S_base1
+*color15:                   S_base3
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 URxvt.perl-lib:             $HOME/.urxvt/ext
@@ -64,10 +69,8 @@ URxvt.perl-ext-common:      font-size
 !! urxvt font definitions
 URxvt.saveLines:            10000
 URxvt.xftAntialias:         true
-URxvt.font:                 xft:inconsolata:pixelsize=14:antialias=true,hinting=true
-URxvt.boldFont:             xft:inconsolata:pixelsize=14:antialias=true,hinting=true
-URxvt.italicFont:           xft:inconsolata:pixelsize=14:antialias=true,hinting=true
-URxvt.bolditalicFont:       xft:inconsolata:pixelsize=14:antialias=true,hinting=true
+URxvt*font:                 termfont
+URxvt.letterSpace:          -1
 
 URxvt.scrollBar:            false
 

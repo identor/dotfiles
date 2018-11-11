@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-easy-align'
     Plug 'joereynolds/SQHell.vim'
     Plug 'tpope/vim-abolish'
+    Plug 'airblade/vim-gitgutter'
 
     " NERD
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -44,6 +45,9 @@ call plug#begin('~/.vim/plugged')
     "Syntax checker
     Plug 'w0rp/ale'
 call plug#end()
+
+" Update time
+se updatetime=100
 
 " Set shell
 se shell=/bin/zsh
