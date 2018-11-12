@@ -35,7 +35,7 @@
 ! URxvt*background:            S_base03
 !
 ! Terminal Font Declaration
-#define termfont            xft:Inconsolata Nerd Font Mono:pixelsize=13
+#define termfont            xft:Inconsolata Nerd Font Mono:pixelsize=12,xft:Symbola
 
 !! Configuration
 *background:                S_base03
