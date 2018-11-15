@@ -4,16 +4,9 @@ export ZSH=$HOME/.oh-my-zsh
 #
 # Theme configuration
 #
-if [[ -d $SS_DIR ]]; then
-  git clone $SS_URL $SS_DIR
-  ln -s "$SS_DIR/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-fi
-ZSH_THEME="spaceship"
+ZSH_THEME="simple"
 
 plugins=(git)
-
-SS_URL=https://github.com/denysdovhan/spaceship-prompt.git
-SS_DIR="$ZSH_CUSTOM/themes/spaceship-prompt"
 
 # Source environment variables
 [ -f ~/.env/secret ] && source ~/.env/secret

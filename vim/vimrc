@@ -47,7 +47,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Update time
-se updatetime=100
+se updatetime=1000
 
 " Set shell
 se shell=/bin/zsh

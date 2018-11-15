@@ -35,7 +35,7 @@
 ! URxvt*background:            S_base03
 !
 ! Terminal Font Declaration
-#define termfont            xft:Inconsolata Nerd Font Mono:pixelsize=12,xft:Symbola
+#define termfont            xft:Hack NF:size=9,xft:Symbola
 
 !! Configuration
 *background:                S_base03
@@ -70,7 +70,6 @@ URxvt.perl-ext-common:      font-size
 URxvt.saveLines:            10000
 URxvt.xftAntialias:         true
 URxvt*font:                 termfont
-URxvt.letterSpace:          -1
 
 URxvt.scrollBar:            false
 
