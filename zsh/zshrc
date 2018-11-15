@@ -93,7 +93,11 @@ unsetopt nomatch
 [ -f ~/.profile ] && source ~/.profile
 
 # fzf - enable fuzzy file search bindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ ! -d ~/.fzf ]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
+source ~/.fzf.zsh
 
 # Merge ~/.Xresources
 xrdb -merge ~/.Xresources
