@@ -1,49 +1,49 @@
 call plug#begin('~/.vim/plugged')
-    Plug 'tpope/vim-sensible'
-    Plug 'tpope/vim-fugitive'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'dkprice/vim-easygrep'
-    Plug 'itchyny/lightline.vim'
-    Plug 'mfukar/robotframework-vim'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'joereynolds/SQHell.vim'
-    Plug 'tpope/vim-abolish'
-    Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-fugitive'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'dkprice/vim-easygrep'
+  Plug 'itchyny/lightline.vim'
+  Plug 'mfukar/robotframework-vim'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'joereynolds/SQHell.vim'
+  Plug 'tpope/vim-abolish'
+  Plug 'airblade/vim-gitgutter'
 
-    " NERD
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'low-ghost/nerdtree-fugitive'
+  " NERD
+  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'low-ghost/nerdtree-fugitive'
 
-    " JavaScript
-    Plug 'pangloss/vim-javascript'
-    Plug 'mxw/vim-jsx'
-    Plug 'moll/vim-node'
-    Plug 'posva/vim-vue'
+  " JavaScript
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'moll/vim-node'
+  Plug 'posva/vim-vue'
 
-    " Typescript
-    Plug 'leafgarland/typescript-vim'
-    Plug 'Quramy/vim-js-pretty-template'
-    Plug 'jason0x43/vim-js-indent'
+  " Typescript
+  Plug 'leafgarland/typescript-vim'
+  Plug 'Quramy/vim-js-pretty-template'
+  Plug 'jason0x43/vim-js-indent'
 
-    " Colorscheme
-    Plug 'altercation/vim-colors-solarized'
+  " Colorscheme
+  Plug 'altercation/vim-colors-solarized'
 
-    "Surround
-    Plug 'tpope/vim-unimpaired'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-repeat'
+  "Surround
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
 
-    "Snippets
-    Plug 'MarcWeber/vim-addon-mw-utils'     " Required by snipmate
-    Plug 'tomtom/tlib_vim'                  " Required by snipmate
-    Plug 'garbas/vim-snipmate'
+  "Snippets
+  Plug 'MarcWeber/vim-addon-mw-utils' " Required by snipmate
+  Plug 'tomtom/tlib_vim' " Required by snipmate
+  Plug 'garbas/vim-snipmate'
 
-    "Prettier
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  "Prettier
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-    "Syntax checker
-    Plug 'w0rp/ale'
+  "Syntax checker
+  Plug 'w0rp/ale'
 call plug#end()
 
 " Auto chdir
@@ -71,39 +71,39 @@ se wildignore+=node_modules/** path+=src/** path+=lib/**
 let solarized_dir="$HOME/.vim/plugged/vim-colors-solarized"
 
 if has('windows') && !has('unix') && !has('gui_running')
-    set bg=dark
-    colo torte
+  set bg=dark
+  colo torte
 elseif isdirectory(expand(solarized_dir))
-    " Color scheme
-    set t_Co=256
-    set bg=light
-    let g:solarized_termcolors = 256
-    let g:solarized_termtrans = 1
-    let g:solarized_contrast = 'normal'
-    let g:solarized_visibility = 'normal'
-    colo solarized
+  " Color scheme
+  set t_Co=256
+  set bg=light
+  let g:solarized_termcolors = 256
+  let g:solarized_termtrans = 1
+  let g:solarized_contrast = 'normal'
+  let g:solarized_visibility = 'normal'
+  colo solarized
 endif
 
 " Light line
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
+    \ 'colorscheme': 'solarized',
+    \ }
 
 " If gvim
 if has('gui_running')
-    " Remove toolbars
-    set guioptions-=T  "remove toolbar
-    set guioptions-=m  "remove menu bar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guioptions-=L  "remove left-hand scroll bar
+  " Remove toolbars
+  set guioptions-=T  "remove toolbar
+  set guioptions-=m  "remove menu bar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 
-    " Set gui font
-    if has('unix')
-        set guifont=DejaVu\ Sans\ Mono\ 9
-        set guifontwide=DejaVu\ Sans\ Mono\ 9
-    else
-        set guifont=Consolas:h9
-    endif
+  " Set gui font
+  if has('unix')
+    set guifont=DejaVu\ Sans\ Mono\ 9
+    set guifontwide=DejaVu\ Sans\ Mono\ 9
+  else
+    set guifont=Consolas:h9
+  endif
 endif
 
 " Ctrlp ignore
@@ -129,36 +129,39 @@ let g:NERDSpaceDelims = 1
 let mapleader = ' '
 
 " Tab navigation
-nnoremap <leader>l                  :tabn<cr>
-nnoremap <leader>h                  :tabp<cr>
+nnoremap <leader>l :tabn<cr>
+nnoremap <leader>h :tabp<cr>
 " Tabonly
-nnoremap <leader>to                 :tabo<cr>
+nnoremap <leader>to :tabo<cr>
 
 " NERDTree
-nnoremap <leader>e                  :NERDTreeToggle<cr>
-nnoremap <leader>qq                 :qa!<cr>
+nnoremap <leader>e :NERDTreeToggle<cr>
+nnoremap <leader>qq :qa!<cr>
 
 " Session management
 
 " Add/Save session
-nnoremap <leader>sa                 :mksession $HOME/.vim/sessions/
-nnoremap <leader>ss                 :mksession! $HOME/.vim/sessions/
+nnoremap <leader>sa :mksession $HOME/.vim/sessions/
+nnoremap <leader>ss :mksession! $HOME/.vim/sessions/
 
 " Load session
-nnoremap <leader>sl                 :source $HOME/.vim/sessions/
+nnoremap <leader>sl :source $HOME/.vim/sessions/
 
 " fugitive key bindings
-nnoremap <leader>gs                 :Gstatus<cr>
-nnoremap <leader>gc                 :Gcommit<cr>
-nnoremap <leader>gpl                :Gpull<cr>
-nnoremap <leader>gps                :Gpush<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gpl :Gpull<cr>
+nnoremap <leader>gps :Gpush<cr>
 
 " Buffer delete
-nnoremap <leader>d                  :bd<cr>
-nnoremap <C-c>                      <Esc>
-imap <C-c>                          <Esc>
+nnoremap <leader>d :bd<cr>
+nnoremap <C-c> <Esc>
+imap <C-c> <Esc>
 
 " Easy align
-nmap ga                             <Plug>(EasyAlign)
-xmap ga                             <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+
+" Toggle spacing
+nnoremap <leader>s :call ToggleSpacing()<cr>
 
