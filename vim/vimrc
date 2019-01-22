@@ -167,5 +167,5 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " Toggle spacing
-nnoremap <leader>s :call ToggleSpacing()<cr>
+nnoremap <leader>sp :call ToggleSpacing()<cr>
 
