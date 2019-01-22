@@ -105,6 +105,15 @@ xrdb -merge ~/.Xresources
 
 # User path configurations
 PATH="$PATH:$HOME/.deno/bin"
+
+NODE_MODULES=$HOME/node_modules
+if [ -d $NODE_MODULES ]; then
+  PATH="$NODE_MODULES/.bin:$PATH"
+
+  # Install local packages
+  alias npml="npm i --prefix $HOME"
+fi
+
 export PATH
 
 # Java

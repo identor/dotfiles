@@ -10,6 +10,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-abolish'
   Plug 'airblade/vim-gitgutter'
 
+  " Vim scripts
+  Plug 'vim-scripts/SQLUtilities'
+  Plug 'vim-scripts/Align'
+
   " NERD
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
   Plug 'scrooloose/nerdcommenter'
