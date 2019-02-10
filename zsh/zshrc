@@ -26,35 +26,35 @@ fi
 # $DB_HOST - hostname
 # $DB_USER - username
 function dbenv () {
-    env=$1
-    shift
+  env=$1
+  shift
 
-    prog=$1
-    shift
+  prog=$1
+  shift
 
-    # Don't expose variables exported via `export` call
-    (
-        export $(cat $env | xargs) &&
-        $prog -u$DB_USER -p$DB_PASSWORD -h$DB_HOST $DB_DEFAULT $@
-    )
+  # Don't expose variables exported via `export` call
+  (
+  export $(cat $env | xargs) &&
+    $prog -u$DB_USER -p$DB_PASSWORD -h$DB_HOST $DB_DEFAULT $@
+  )
 }
 
 function mysqlenv () {
-    env=$1
-    shift
+  env=$1
+  shift
 
-    dbenv $env mysql $@
+  dbenv $env mysql $@
 }
 
 function mysqldumpenv () {
-    env=$1
-    shift
+  env=$1
+  shift
 
-    dbenv $env mysqldump $@
+  dbenv $env mysqldump $@
 }
 
 function cproj() {
-    $1; cd $1; tmux -2 new -s $1 || tmux -2 a -t $1
+  $1; cd $1; tmux -2 new -s $1 || tmux -2 a -t $1
 }
 
 # Aliases
@@ -95,13 +95,15 @@ unsetopt nomatch
 
 # fzf - enable fuzzy file search bindings
 if [ ! -d ~/.fzf ]; then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
 fi
 source ~/.fzf.zsh
 
 # Merge ~/.Xresources
-xrdb -merge ~/.Xresources
+if hash xrdb 2>/dev/null; then
+  xrdb -merge ~/.Xresources
+fi
 
 # User path configurations
 PATH="$PATH:$HOME/.deno/bin"
