@@ -169,3 +169,6 @@ xmap ga <Plug>(EasyAlign)
 " Toggle spacing
 nnoremap <leader>sp :call ToggleSpacing()<cr>
 
+" Align confluence table using vim-align, set m< and m> first
+nnoremap <leader>ttc :s/^\|\|/\|,/g<cr>:s/\|\|$/,\|/g<cr>:s/\|\|/,\|/g<cr>:AlignCtrl lp1P1W<cr>:normal! V}<cr>:Align \|<cr>:%s/\| ,/\|\| /g<cr>:%s/, \|/ \|\|/g<cr>:%s/\s\+$//g<cr>
+
