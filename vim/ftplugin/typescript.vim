@@ -7,7 +7,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$|\.js$' }
 
-autocmd FileType typescript setlocal completeopt-=menu
+autocmd FileType typescript setlocal completeopt=menu
 autocmd FileType typescript setlocal makeprg=tsc
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow

@@ -8,6 +8,10 @@ VIMPLUG=$VIMHOME/autoload/plug.vim
 VIMPLUG_URL=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 init () {
+    if ! hash tsserver; then
+        echo 'typescript is please make sure that it is installed ([sudo] npm i -g typescript)'
+    fi
+
     if [ -d $VIMHOME_WINDOWS ]; then
         rm -Rf $VIMHOME_WINDOWS
     fi

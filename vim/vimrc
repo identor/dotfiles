@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'joereynolds/SQHell.vim'
   Plug 'tpope/vim-abolish'
   Plug 'airblade/vim-gitgutter'
+  Plug 'Shougo/unite.vim'
 
   " Vim scripts
   Plug 'vim-scripts/SQLUtilities'
@@ -29,6 +30,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'Quramy/vim-js-pretty-template'
   Plug 'jason0x43/vim-js-indent'
+  Plug 'mhartington/vim-typings'
+  Plug 'Quramy/tsuquyomi'
 
   " Colorscheme
   Plug 'altercation/vim-colors-solarized'
@@ -48,6 +51,11 @@ call plug#begin('~/.vim/plugged')
 
   "Syntax checker
   Plug 'w0rp/ale'
+
+  " Typescript
+  Plug 'leafgarland/typescript-vim'
+  Plug 'Quramy/vim-js-pretty-template'
+
 call plug#end()
 
 " Auto chdir
@@ -168,7 +176,4 @@ xmap ga <Plug>(EasyAlign)
 
 " Toggle spacing
 nnoremap <leader>sp :call ToggleSpacing()<cr>
-
-" Align confluence table using vim-align, set m< and m> first
-nnoremap <leader>ttc :s/^\|\|/\|,/g<cr>:s/\|\|$/,\|/g<cr>:s/\|\|/,\|/g<cr>:AlignCtrl lp1P1W<cr>:normal! V}<cr>:Align \|<cr>:%s/\| ,/\|\| /g<cr>:%s/, \|/ \|\|/g<cr>:%s/\s\+$//g<cr>
 
