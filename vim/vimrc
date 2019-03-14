@@ -10,6 +10,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-abolish'
   Plug 'airblade/vim-gitgutter'
   Plug 'Shougo/unite.vim'
+  Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+  Plug 'tmux-plugins/vim-tmux'
 
   " Vim scripts
   Plug 'vim-scripts/SQLUtilities'
@@ -25,6 +27,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mxw/vim-jsx'
   Plug 'moll/vim-node'
   Plug 'posva/vim-vue'
+  Plug 'idanarye/vim-vebugger', { 'branch': 'develop' }
 
   " Typescript
   Plug 'leafgarland/typescript-vim'

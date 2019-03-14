@@ -39,6 +39,13 @@ function dbenv () {
   )
 }
 
+function myclienv () {
+  env=$1
+  shift
+
+  dbenv $env mycli $@
+}
+
 function mysqlenv () {
   env=$1
   shift
