@@ -4,7 +4,8 @@ export ZSH=$HOME/.oh-my-zsh
 #
 # Theme configuration
 #
-ZSH_THEME="simple"
+ZSH_THEME="spaceship"
+SPACESHIP_PROMPT_ORDER=(time user dir git node docker package exec_time char)
 
 plugins=(git, kubectl)
 
@@ -115,7 +116,7 @@ fi
 # User path configurations
 PATH="$PATH:$HOME/.deno/bin"
 
-NODE_MODULES=$HOME/node_modules
+NODE_MODULES=$HOME/.node/node_modules
 if [ -d $NODE_MODULES ]; then
   PATH="$NODE_MODULES/.bin:$PATH"
 
@@ -138,3 +139,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Kubectl autocomplete
 source <(k completion zsh)
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
