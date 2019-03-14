@@ -1,8 +1,0 @@
-#!/bin/bash
-
-cd ~/scm/identor/swipe-rx-ext
-
-source ~/.env/swipe-rx/production
-# source ~/.env/swipe-rx/api-local
-babel-node lib/cli/modules/send-iai-email.js
-
