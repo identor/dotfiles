@@ -26,11 +26,11 @@ fi
 # $DB_PASSWORD - password
 # $DB_HOST - hostname
 # $DB_USER - username
-function dbenv () {
-  env=$1
+function mydbenv () {
+  prog=$1
   shift
 
-  prog=$1
+  env=$1
   shift
 
   # Don't expose variables exported via `export` call
@@ -40,30 +40,14 @@ function dbenv () {
   )
 }
 
-function myclienv () {
-  env=$1
-  shift
-
-  dbenv $env mycli $@
-}
-
-function mysqlenv () {
-  env=$1
-  shift
-
-  dbenv $env mysql $@
-}
-
-function mysqldumpenv () {
-  env=$1
-  shift
-
-  dbenv $env mysqldump $@
-}
-
 function cproj() {
   $1; cd $1; tmux -2 new -s $1 || tmux -2 a -t $1
 }
+
+# Mysql utils Alias
+alias mysqldumpenv="mydbenv mysqldump"
+alias mysqlenv="mydbenv mysql"
+alias myclienv="mydbenv mycli"
 
 # Aliases
 # Git alias
