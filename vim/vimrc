@@ -59,8 +59,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'Quramy/vim-js-pretty-template'
 
-  " Neovim colors
-  Plug 'iCyMind/NeoSolarized'
+  if has('nvim')
+    " Neovim colors
+    Plug 'iCyMind/NeoSolarized'
+  endif
 call plug#end()
 
 " Auto chdir
