@@ -1,13 +1,16 @@
 # Oh My Zsh
 export ZSH=$HOME/.oh-my-zsh
 
-plugins=(git, kubectl)
+plugins=(kubectl)
 
 #
 # Theme configuration
 #
 ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ORDER=(time user dir git node docker package exec_time char)
+
+# Load profile first
+[ -f ~/.profile ] && source ~/.profile
 
 # Source environment variables
 [ -f ~/.env/secret ] && source ~/.env/secret
@@ -83,8 +86,6 @@ alias randimg='echo `curl -Ls -o /dev/null -w %{url_effective} http://source.uns
 
 # bypass zsh glob pattern
 unsetopt nomatch
-
-[ -f ~/.profile ] && source ~/.profile
 
 # fzf - enable fuzzy file search bindings
 if [ ! -d ~/.fzf ]; then
