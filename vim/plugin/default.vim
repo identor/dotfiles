@@ -1,3 +1,27 @@
+" Auto chdir
+se autochdir
+
+" Update time
+se updatetime=1000
+
+" Set shell
+se shell=/bin/zsh
+
+" Set clipboard
+se clipboard=unnamed,unnamedplus
+
+" My defaults
+se nocompatible mouse=a nowrap relativenumber list ts=4 sw=4 sts=4
+
+" Set temp directory
+se backupdir=$HOME/.vimswap directory=$HOME/.vimswap
+
+" Default find settings
+se wildignore+=node_modules/** path+=src/** path+=lib/**
+
+" Map leader to unused key in normal mode
+let mapleader = ' '
+
 " cd to dir if opening a directory
 autocmd StdinReadPre * let std_in = 1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("std_in") | ene | exe 'cd' argv()[0] | echo '' | endif

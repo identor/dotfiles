@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-fugitive'
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'dkprice/vim-easygrep'
   Plug 'itchyny/lightline.vim'
   Plug 'mfukar/robotframework-vim'
   Plug 'junegunn/vim-easy-align'
@@ -12,6 +11,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/unite.vim'
   Plug 'Shougo/vimproc.vim', {'do' : 'make'}
   Plug 'tmux-plugins/vim-tmux'
+  Plug 'tpope/vim-dispatch'
+  Plug 'Shougo/denite.nvim'
 
   " Vim scripts
   Plug 'vim-scripts/SQLUtilities'
@@ -64,144 +65,4 @@ call plug#begin('~/.vim/plugged')
     Plug 'iCyMind/NeoSolarized'
   endif
 call plug#end()
-
-" Auto chdir
-se autochdir
-
-" Update time
-se updatetime=1000
-
-" Set shell
-se shell=/bin/zsh
-
-" Set clipboard
-se clipboard=unnamed,unnamedplus
-
-" My defaults
-se nocompatible mouse=a nowrap relativenumber list ts=4 sw=4 sts=4
-
-" Set temp directory
-se backupdir=$HOME/.vimswap directory=$HOME/.vimswap
-
-" Default find settings
-se wildignore+=node_modules/** path+=src/** path+=lib/**
-
-" Color settings
-let solarized_dir="$HOME/.vim/plugged/vim-colors-solarized"
-
-if has('windows') && !has('unix') && !has('gui_running')
-  set bg=dark
-  colo torte
-elseif isdirectory(expand(solarized_dir))
-  " Color scheme
-  set t_Co=256
-  set bg=light
-  let g:solarized_termcolors = 256
-  let g:solarized_termtrans = 1
-  let g:solarized_contrast = 'normal'
-  let g:solarized_visibility = 'normal'
-  colo solarized
-endif
-
-" Light line
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'component': {
-      \   'lineinfo': ' %3l:%-2v',
-      \ },
-      \ 'component_function': {
-      \   'readonly': 'LightlineReadonly',
-      \   'fugitive': 'LightlineFugitive'
-      \ }
-      \ }
-
-function! LightlineReadonly()
-  return &readonly ? '' : ''
-endfunction
-function! LightlineFugitive()
-  if exists('*fugitive#head')
-    let branch = fugitive#head()
-    return branch !=# '' ? ''.branch : ''
-  endif
-  return ''
-endfunction
-
-" If gvim
-if has('gui_running')
-  " Remove toolbars
-  set guioptions-=T  "remove toolbar
-  set guioptions-=m  "remove menu bar
-  set guioptions-=r  "remove right-hand scroll bar
-  set guioptions-=L  "remove left-hand scroll bar
-
-  " Try Fira Code rendering
-  let g:gtk_nocache=[0x00000000, 0xfc00ffff, 0xf8000001, 0x78000001]
-
-  " Set gui font
-  if has('unix')
-    set guifont=Fira\ Code\ Light\ 9
-    set guifontwide=Fira\ Code\ Light\ 9
-  else
-    set guifont=Consolas:h9
-  endif
-endif
-
-" Ctrlp ignore
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|(node_modules))$',
-  \ 'file': '\v\.(exe|so|dll|zip|gz|rar)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-
-let g:ctrlp_user_command = [
-  \ '.git/',
-  \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard'
-  \ ]
-
-" Commenter
-let g:NERDSpaceDelims = 1
-
-"
-" KEYBINDINGS
-"
-
-" Map leader to unused key in normal mode
-let mapleader = ' '
-
-" Tab navigation
-nnoremap <leader>l :tabn<cr>
-nnoremap <leader>h :tabp<cr>
-" Tabonly
-nnoremap <leader>to :tabo<cr>
-
-" NERDTree
-nnoremap <leader>e :NERDTreeToggle<cr>
-nnoremap <leader>qq :qa!<cr>
-
-" Session management
-
-" Add/Save session
-nnoremap <leader>sa :mksession $HOME/.vim/sessions/
-nnoremap <leader>ss :mksession! $HOME/.vim/sessions/
-
-" Load session
-nnoremap <leader>sl :source $HOME/.vim/sessions/
-
-" fugitive key bindings
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>gpl :Gpull<cr>
-nnoremap <leader>gps :Gpush<cr>
-
-" Buffer delete
-nnoremap <leader>d :bd<cr>
-nnoremap <C-c> <Esc>
-imap <C-c> <Esc>
-
-" Easy align
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
-
-" Toggle spacing
-nnoremap <leader>sp :call ToggleSpacing()<cr>
 

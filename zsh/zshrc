@@ -102,12 +102,13 @@ fi
 # User path configurations
 PATH="$PATH:$HOME/.deno/bin"
 
-NODE_MODULES=$HOME/.node/node_modules
+LOCAL_SHARE_DIR=$HOME/.local/share
+NODE_MODULES=$LOCAL_SHARE_DIR/node_modules
 if [ -d $NODE_MODULES ]; then
   PATH="$NODE_MODULES/.bin:$PATH"
 
   # Install local packages
-  alias npml="npm i --prefix $HOME"
+  alias npml="npm i --prefix $HOME/.local/share"
 fi
 
 export PATH

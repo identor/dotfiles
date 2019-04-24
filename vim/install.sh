@@ -48,7 +48,11 @@ cp $VIMRC $HOME/.vimrc
 ln -Ts $VIMHOME $VIMHOME_WINDOWS
 
 # Install Bundles
-vim +PlugInstall +qa
+if command -v vim; then
+    vim +PlugInstall +qa
+else
+    nvim +PlugInstall +qa
+fi
 
 echo "Install complete"
 
