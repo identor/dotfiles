@@ -47,6 +47,15 @@ function cproj() {
   $1; cd $1; tmux -2 new -s $1 || tmux -2 a -t $1
 }
 
+# Export variables in file to current shell
+function exportvars() {
+  file=$1
+
+  set -o allexport
+  source $file
+  set +o allexport
+}
+
 # Mysql utils Alias
 alias mysqldumpenv="mydbenv mysqldump"
 alias mysqlenv="mydbenv mysql"

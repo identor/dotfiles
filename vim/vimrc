@@ -64,5 +64,8 @@ call plug#begin('~/.vim/plugged')
     " Neovim colors
     Plug 'iCyMind/NeoSolarized'
   endif
+
+  " Wakatime
+  Plug 'wakatime/vim-wakatime'
 call plug#end()
 

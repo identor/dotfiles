@@ -35,3 +35,6 @@ xmap ga <Plug>(EasyAlign)
 " Toggle spacing
 nnoremap <leader>sp :call ToggleSpacing()<cr>
 
+" Grep in file, search file content and go to file
+nnoremap <leader>gif :Denite grep<cr>
+
