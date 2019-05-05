@@ -24,6 +24,15 @@ else
   export EDITOR='nvim'
 fi
 
+# Export variables in file to current shell
+function exportvars() {
+  file=$1
+
+  set -o allexport
+  source $file
+  set +o allexport
+}
+
 # Supported variables
 # $DB_DEFAULT - default database
 # $DB_PASSWORD - password
@@ -38,22 +47,13 @@ function mydbenv () {
 
   # Don't expose variables exported via `export` call
   (
-  export $(cat $env | xargs) &&
+  exportvars $env &&
     $prog -u$DB_USER -p$DB_PASSWORD -h$DB_HOST $DB_DEFAULT $@
   )
 }
 
 function cproj() {
   $1; cd $1; tmux -2 new -s $1 || tmux -2 a -t $1
-}
-
-# Export variables in file to current shell
-function exportvars() {
-  file=$1
-
-  set -o allexport
-  source $file
-  set +o allexport
 }
 
 # Mysql utils Alias
