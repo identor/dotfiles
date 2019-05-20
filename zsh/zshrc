@@ -76,7 +76,12 @@ alias k="kubectl"
 alias vimf='vim `fzf`'
 
 # Dotenv
-alias de="dotenv -e"
+function de () {
+  file=$1
+  shift
+
+  (exportvars $file; $@)
+}
 
 # Xclip
 alias xclipc="xclip -sel clip"
