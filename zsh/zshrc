@@ -141,5 +141,11 @@ export NVM_DIR="$HOME/.nvm"
 # Kubectl autocomplete
 source <(k completion zsh)
 
+# Az CLI autocomplete
+source '/home/identor/.local/lib/azure-cli/az.completion'
+
+# Source kube aliases
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
