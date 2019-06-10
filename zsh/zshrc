@@ -114,7 +114,7 @@ if hash xrdb 2>/dev/null; then
 fi
 
 # User path configurations
-PATH="$PATH:$HOME/.deno/bin"
+PATH="$PATH:$HOME/.deno/bin:$HOME/.local/bin"
 
 LOCAL_SHARE_DIR=$HOME/.local/share
 NODE_MODULES=$LOCAL_SHARE_DIR/node_modules
