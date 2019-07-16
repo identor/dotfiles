@@ -1,5 +1,6 @@
-" Auto chdir
-se autochdir
+" Don't break C^X C^F
+autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
+autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 
 " Update time
 se updatetime=1000

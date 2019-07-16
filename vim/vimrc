@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/lightline.vim'
   Plug 'mfukar/robotframework-vim'
   Plug 'junegunn/vim-easy-align'
+  Plug 'junegunn/fzf.vim'
   Plug 'joereynolds/SQHell.vim'
   Plug 'tpope/vim-abolish'
   Plug 'airblade/vim-gitgutter'
@@ -12,7 +13,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/vimproc.vim', {'do' : 'make'}
   Plug 'tmux-plugins/vim-tmux'
   Plug 'tpope/vim-dispatch'
-  Plug 'Shougo/denite.nvim'
 
   " Vim scripts
   Plug 'vim-scripts/SQLUtilities'
