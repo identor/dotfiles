@@ -36,7 +36,7 @@ xmap ga <Plug>(EasyAlign)
 nnoremap <leader>sp :call ToggleSpacing()<cr>
 
 " Fzf bindings
-nnoremap <leader>ff :Ag<cr>
+nnoremap <leader>ff :Ag!<cr>
 nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>fl :Lines<cr>
 nnoremap <leader>flb :BLines<cr>

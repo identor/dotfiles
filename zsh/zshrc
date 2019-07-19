@@ -69,9 +69,6 @@ alias Gpull="git pull"
 alias Gpush="git push"
 alias Gcommit="git commit"
 
-# k8s
-alias k="kubectl"
-
 # fzf vim
 alias vimf='vim `fzf`'
 
@@ -142,6 +139,9 @@ export PATH="$HOME/opt/java/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Bat Colorscheme
+export BAT_THEME="Monokai Extended Light"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
