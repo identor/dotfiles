@@ -35,6 +35,16 @@ xmap ga <Plug>(EasyAlign)
 " Toggle spacing
 nnoremap <leader>sp :call ToggleSpacing()<cr>
 
-" Grep in file, search file content and go to file
-nnoremap <leader>gif :Denite -default-action=quickfix grep:::!<cr>
+" Fzf bindings
+nnoremap <leader>ff :Ag<cr>
+nnoremap <leader>fb :Buffers<cr>
+nnoremap <leader>fl :Lines<cr>
+nnoremap <leader>flb :BLines<cr>
+nnoremap <leader>fh :History:<cr>
+nnoremap <leader>fs :History/<cr>
+nnoremap <leader>fc :Commit<cr>
+nnoremap <leader>fcb :BCommit<cr>
+nnoremap <leader>fm :Maps<cr>
 
+" CtrlP fzf
+nnoremap <C-p> :GFiles<cr>
