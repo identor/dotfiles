@@ -52,6 +52,9 @@ if command -v vim; then
     vim +PlugInstall +qa
 else
     nvim +PlugInstall +qa
+    if [ ! -d $HOME/.config/coc/extensions/node_modules/coc-tsserver ]; then
+        nvim +CocInstall coc-tsserver
+    fi
 fi
 
 echo "Install complete"
