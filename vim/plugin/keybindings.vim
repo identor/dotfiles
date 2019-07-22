@@ -48,3 +48,7 @@ nnoremap <leader>fm :Maps<cr>
 
 " CtrlP fzf
 nnoremap <C-p> :GFiles<cr>
+
+" Conquer of Code
+nmap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> K :call coc_custom#show_documentation()<CR>
