@@ -6,7 +6,7 @@ VIMHOME=$HOME/.vim
 VIMHOME_WINDOWS=$HOME/vimfiles
 VIMPLUG=$VIMHOME/autoload/plug.vim
 VIMPLUG_URL=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-XDB_CONFIG_HOME=$HOME/.config
+XDG_CONFIG_HOME=$HOME/.config
 
 init () {
     if ! hash tsserver; then
@@ -31,6 +31,7 @@ init () {
     mkdir -p $VIMHOME/ftplugin
     mkdir -p $VIMHOME/syntax
     mkdir -p $VIMHOME/plugin
+    mkdir -p $XDG_CONFIG_HOME
 }
 
 init
@@ -41,7 +42,7 @@ cp -r $FILES_DIR/snippets $VIMHOME/.
 cp -r $FILES_DIR/ftplugin $VIMHOME/.
 cp -r $FILES_DIR/syntax $VIMHOME/.
 cp -r $FILES_DIR/plugin $VIMHOME/.
-cp -r $FILES_DIR/nvim $XDB_CONFIG_HOME/.
+cp -r $FILES_DIR/nvim $XGB_CONFIG_HOME/.
 
 # Copy vimrc
 echo "Copying .vimrc"
