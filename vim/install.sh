@@ -42,7 +42,7 @@ cp -r $FILES_DIR/snippets $VIMHOME/.
 cp -r $FILES_DIR/ftplugin $VIMHOME/.
 cp -r $FILES_DIR/syntax $VIMHOME/.
 cp -r $FILES_DIR/plugin $VIMHOME/.
-cp -r $FILES_DIR/nvim $XGB_CONFIG_HOME/.
+cp -r $FILES_DIR/nvim $XDG_CONFIG_HOME/.
 
 # Copy vimrc
 echo "Copying .vimrc"
