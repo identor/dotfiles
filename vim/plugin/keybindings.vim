@@ -52,3 +52,17 @@ nnoremap <C-p> :GFiles!<cr>
 " Conquer of Code
 nmap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> K :call coc_custom#show_documentation()<CR>
+
+" Terminal navigation
+tnoremap <leader>wh <C-\><C-N><C-w>h
+tnoremap <leader>wj <C-\><C-N><C-w>j
+tnoremap <leader>wk <C-\><C-N><C-w>k
+tnoremap <leader>wl <C-\><C-N><C-w>l
+inoremap <leader>wh <C-\><C-N><C-w>h
+inoremap <leader>wj <C-\><C-N><C-w>j
+inoremap <leader>wk <C-\><C-N><C-w>k
+inoremap <leader>wl <C-\><C-N><C-w>l
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
