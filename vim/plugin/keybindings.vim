@@ -66,3 +66,5 @@ nnoremap <leader>wh <C-w>h
 nnoremap <leader>wj <C-w>j
 nnoremap <leader>wk <C-w>k
 nnoremap <leader>wl <C-w>l
+nnoremap <C-w>t <C-w>n:term<cr>
+nnoremap <C-w>T <C-w>v:term<cr>
