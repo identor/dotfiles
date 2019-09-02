@@ -9,6 +9,8 @@ plugins=(kubectl autojump)
 ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ORDER=(time user dir git node docker package exec_time char)
 
+export EDITOR=nvim
+
 # Load profile first
 [ -f ~/.profile ] && source ~/.profile
 
@@ -48,7 +50,7 @@ function mydbenv () {
   # Don't expose variables exported via `export` call
   (
   exportvars $env &&
-    $prog -u$DB_USER -p$DB_PASSWORD -h$DB_HOST $DB_DEFAULT $@
+    $prog -u$DB_USER -p$DB_PASSWORD -P$DB_PORT -h$DB_HOST $DB_DEFAULT $@
   )
 }
 
