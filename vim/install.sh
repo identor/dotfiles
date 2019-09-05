@@ -29,6 +29,7 @@ init () {
     mkdir -p $VIMHOME/sessions
     mkdir -p $VIMHOME/bundle
     mkdir -p $VIMHOME/ftplugin
+    mkdir -p $VIMHOME/after/
     mkdir -p $VIMHOME/syntax
     mkdir -p $VIMHOME/plugin
     mkdir -p $XDG_CONFIG_HOME
@@ -40,6 +41,7 @@ echo "Copying files dir"
 cp -r $FILES_DIR/mclinica $VIMHOME/.
 cp -r $FILES_DIR/snippets $VIMHOME/.
 cp -r $FILES_DIR/ftplugin $VIMHOME/.
+cp -r $FILES_DIR/after $VIMHOME/.
 cp -r $FILES_DIR/syntax $VIMHOME/.
 cp -r $FILES_DIR/plugin $VIMHOME/.
 cp -r $FILES_DIR/nvim $XDG_CONFIG_HOME/.
