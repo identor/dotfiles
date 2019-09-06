@@ -57,4 +57,3 @@ nnoremap <silent> K :call coc_custom#show_documentation()<CR>
 nnoremap <C-w>t <C-w>n:term<cr>
 nnoremap <C-w>T <C-w>v:term<cr>
 tnoremap <Esc> <C-\><C-n>
-tnoremap <C-c> <C-\><C-n>
