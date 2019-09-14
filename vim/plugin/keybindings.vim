@@ -54,6 +54,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> K :call coc_custom#show_documentation()<CR>
 
 " Terminal navigation
-nnoremap <C-w>t <C-w>n:term<cr>
-nnoremap <C-w>T <C-w>v:term<cr>
+nnoremap <C-w>t <C-w>n:term<cr>i
+nnoremap <C-w>T <C-w>v:term<cr>i
 tnoremap <Esc> <C-\><C-n>

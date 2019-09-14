@@ -166,5 +166,5 @@ source '/home/identor/.local/lib/azure-cli/az.completion'
 # Source kube aliases
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
+# Set android home
+export ANDROID_HOME=/opt/android-sdk
