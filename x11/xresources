@@ -10,7 +10,7 @@
 #define S_violet        #6c71c4
 #define S_blue          #268bd2
 #define S_cyan          #2aa198
-#define S_green         #859900 ! Dark
+#define S_green         #859900
 ! #define S_base03        #002b36
 ! #define S_base02        #073642
 ! #define S_base01        #586e75
@@ -34,7 +34,7 @@
 ! URxvt*background:            S_base03
 !
 ! Terminal Font Declaration
-#define termfont            xft:Fira Code:size=9,xft:Symbola
+#define termfont            xft:DejaVu Sans Mono:pixelsize=12
 
 !! Configuration
 *background:                S_base03
