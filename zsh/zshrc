@@ -106,15 +106,21 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'top:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 
 # Merge ~/.Xresources
-if hash xrdb 2>/dev/null; then
-  xrdb -merge ~/.Xresources
+if [ $X_ENABLED ]; then
+  if hash xrdb 2>/dev/null; then
+    xrdb -merge ~/.Xresources
+  fi
 fi
 
 # User path configurations
 PATH="$PATH:$HOME/.deno/bin:$HOME/.local/bin"
 
+
 LOCAL_SHARE_DIR=$HOME/.local/share
+NODEJS_HOME=$LOCAL_SHARE_DIR/node
 NODE_MODULES=$LOCAL_SHARE_DIR/node_modules
+
+[ -d $NODEJS_HOME ] && PATH="$NODEJS_HOME/bin:$PATH"
 if [ -d $NODE_MODULES ]; then
   PATH="$NODE_MODULES/.bin:$PATH"
 
@@ -143,16 +149,20 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export BAT_THEME="ansi-light"
 
 # Load NVM
-declare -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-NODE_GLOBALS+=("node")
-NODE_GLOBALS+=("nvm")
-load_nvm () {
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-}
-for cmd in "${NODE_GLOBALS[@]}"; do
-  eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-done
+NVM_HOME=$HOME/.nvm
+
+if [[ -d $NVM_HOME ]]; then
+  declare -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
+  NODE_GLOBALS+=("node")
+  NODE_GLOBALS+=("nvm")
+  load_nvm () {
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  }
+  for cmd in "${NODE_GLOBALS[@]}"; do
+    eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
+  done
+fi
 
 # XDG Config vars
 export XDG_CONFIG_HOME=$HOME/.config
@@ -161,7 +171,8 @@ export XDG_CONFIG_HOME=$HOME/.config
 source <(k completion zsh)
 
 # Az CLI autocomplete
-source '/home/identor/.local/lib/azure-cli/az.completion'
+AZ_CLI_HOME="/home/identor/.local/lib/azure-cli"
+[ -d $AZ_CLI_HOME ] && source "$AZ_CLI_HOME/az.completion"
 
 # Source kube aliases
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
