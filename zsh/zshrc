@@ -113,7 +113,7 @@ if [ $X_ENABLED ]; then
 fi
 
 # User path configurations
-PATH="$PATH:$HOME/.deno/bin:$HOME/.local/bin"
+PATH="$PATH:$HOME/.local/bin"
 
 
 LOCAL_SHARE_DIR=$HOME/.local/share
