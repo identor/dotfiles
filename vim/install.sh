@@ -50,7 +50,9 @@ cp -r $FILES_DIR/nvim $XDG_CONFIG_HOME/.
 echo "Copying .vimrc"
 cp $VIMRC $HOME/.vimrc
 
-ln -Ts $VIMHOME $VIMHOME_WINDOWS
+if [[ "$OSTYPE" == "win32" ]]; then
+    ln -Ts $VIMHOME $VIMHOME_WINDOWS
+fi
 
 # Install Bundles
 if command -v vim; then
