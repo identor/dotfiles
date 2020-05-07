@@ -80,6 +80,7 @@ function de () {
 
 # Xclip
 alias xclipc="xclip -sel clip"
+alias xclipcaccesstoken="jq -r '.access_token' | xclipc"
 
 # Use python 3
 alias python='/usr/bin/python3'

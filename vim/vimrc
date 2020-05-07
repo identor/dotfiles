@@ -68,5 +68,8 @@ call plug#begin('~/.vim/plugged')
 
   " Conquer of Completion
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+  " Logstash
+  Plug 'robbles/logstash'
 call plug#end()
 

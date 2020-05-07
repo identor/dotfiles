@@ -27,6 +27,9 @@ let mapleader = ' '
 se splitbelow
 se splitright
 
+" Modeline
+se modeline
+
 " cd to dir if opening a directory
 autocmd StdinReadPre * let std_in = 1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("std_in") | ene | exe 'cd' argv()[0] | echo '' | endif
