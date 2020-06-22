@@ -1,3 +1,3 @@
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
-(evil-mode 0)
+(evil-mode 1)
