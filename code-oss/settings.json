@@ -1,0 +1,75 @@
+{
+  "workbench.colorTheme": "Solarized Light",
+  "window.menuBarVisibility": "toggle",
+  "workbench.activityBar.visible": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "Inconsolata, 'Inconsolata for Powerline', 'monospace', monospace, 'Droid Sans Fallback'",
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.search.location": "gitlens",
+  "terminal.integrated.allowChords": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "space"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["g", "t"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "after": ["g", "T"]
+    },
+    {
+      "before": ["]", "e"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["[", "e"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    }
+  ],
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<space>",
+  "vim.overrideCopy": true,
+  "vim.handleKeys": {
+    "<C-c>": false,
+    "<C-v>": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 1,
+  "javascript.updateImportsOnFileMove.enabled": "always"
+}

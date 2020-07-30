@@ -1,0 +1,83 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "shift+space l",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+space h",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+left",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "alt+down",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+space k",
+        "command": "workbench.action.terminal.navigationModeFocusPrevious",
+        "when": "accessibilityModeEnabled && terminalA11yTreeFocus || accessibilityModeEnabled && terminalFocus"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "-workbench.action.terminal.navigationModeFocusPrevious",
+        "when": "accessibilityModeEnabled && terminalA11yTreeFocus || accessibilityModeEnabled && terminalFocus"
+    },
+    {
+        "key": "shift+space j",
+        "command": "workbench.action.terminal.navigationModeFocusNext",
+        "when": "accessibilityModeEnabled && terminalA11yTreeFocus || accessibilityModeEnabled && terminalFocus"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "-workbench.action.terminal.navigationModeFocusNext",
+        "when": "accessibilityModeEnabled && terminalA11yTreeFocus || accessibilityModeEnabled && terminalFocus"
+    },
+    {
+        "key": "shift+space e",
+        "command": "workbench.files.action.focusOpenEditorsView",
+        "when": "workbench.explorer.openEditorsView.active"
+    },
+    {
+        "key": "ctrl+k e",
+        "command": "-workbench.files.action.focusOpenEditorsView",
+        "when": "workbench.explorer.openEditorsView.active"
+    },
+    {
+        "key": "shift+space .",
+        "command": "workbench.action.quickOpenView"
+    },
+    {
+        "key": "shift+space f",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    }
+]
