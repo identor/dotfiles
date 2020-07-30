@@ -137,6 +137,7 @@ else
 fi
 
 export PATH
+export NODE_PATH=$NODEJS_HOME
 
 # Java
 export JAVA_HOME="$HOME/opt/java/bin/java"

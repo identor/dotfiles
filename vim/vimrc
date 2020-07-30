@@ -67,7 +67,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'wakatime/vim-wakatime'
 
   " Conquer of Completion
-  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Logstash
   Plug 'robbles/logstash'
