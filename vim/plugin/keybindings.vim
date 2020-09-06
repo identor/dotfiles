@@ -47,7 +47,7 @@ nnoremap <leader>fcb :BCommit<cr>
 nnoremap <leader>fm :Maps<cr>
 
 " CtrlP fzf
-nnoremap <C-p> :GFiles!<cr>
+nnoremap <C-p> :FZF<cr>
 
 " Conquer of Code
 nmap <silent> gd <Plug>(coc-definition)

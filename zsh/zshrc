@@ -165,6 +165,12 @@ if [[ -d $NVM_HOME ]]; then
   done
 fi
 
+# Composer
+COMPOSER_BIN=$XDG_CONFIG_HOME/composer/vendor/bin
+if [[ -d $COMPOSER_BIN ]]; then
+  PATH="$COMPOSER_BIN:$PATH"
+fi
+
 # XDG Config vars
 export XDG_CONFIG_HOME=$HOME/.config
 
