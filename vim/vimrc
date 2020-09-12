@@ -71,5 +71,11 @@ call plug#begin('~/.vim/plugged')
 
   " Logstash
   Plug 'robbles/logstash'
+
+  " Editor config, support .editorconfig
+  Plug 'editorconfig/editorconfig-vim'
+
+  " PHP
+  Plug 'marlonfan/coc-phpls'
 call plug#end()
 
