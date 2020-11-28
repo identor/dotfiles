@@ -55,13 +55,13 @@ if [[ "$OSTYPE" == "win32" ]]; then
 fi
 
 # Install Bundles
-if command -v vim; then
-    vim +PlugInstall +qa
-else
+if command -v nvim; then
     nvim +PlugInstall +qa
     if [ ! -d $HOME/.config/coc/extensions/node_modules/coc-tsserver ]; then
         nvim +CocInstall coc-tsserver
     fi
+else
+    vim +PlugInstall +qa
 fi
 
 echo "Install complete"
