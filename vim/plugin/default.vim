@@ -11,6 +11,10 @@ se shell=/bin/zsh
 " Set clipboard
 se clipboard=unnamed,unnamedplus
 
+if has('wsl')
+  echo 'hello!'
+endif
+
 " My defaults
 se nocompatible mouse=a nowrap relativenumber list ts=4 sw=4 sts=4
 
