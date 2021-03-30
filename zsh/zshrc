@@ -45,8 +45,11 @@ function mydbenv () {
 
   # Don't expose variables exported via `export` call
   (
-  exportvars $env &&
-    $prog -u$DB_USER -p$DB_PASSWORD -P$DB_PORT -h$DB_HOST $DB_DEFAULT $@
+  exportvars $env;
+    [[ $DB_SERVER_CA ]] && caopts="$caopts --ssl-ca=$DB_SERVER_CA";
+    [[ $DB_CLIENT_CERT ]] && caopts="$caopts --ssl-cert=$DB_CLIENT_CERT";
+    [[ $DB_CLIENT_KEY ]] && caopts="$caopts --ssl-key=$DB_CLIENT_KEY";
+    $(echo $prog -u$DB_USER -p$DB_PASSWORD -P$DB_PORT -h$DB_HOST $caopts --database=$DB_DEFAULT) $@
   )
 }
 
