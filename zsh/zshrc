@@ -177,15 +177,17 @@ fi
 # XDG Config vars
 export XDG_CONFIG_HOME=$HOME/.config
 
-# Kubectl autocomplete
-source <(k completion zsh)
-
 # Az CLI autocomplete
 AZ_CLI_HOME="/home/identor/.local/lib/azure-cli"
 [ -d $AZ_CLI_HOME ] && source "$AZ_CLI_HOME/az.completion"
 
 # Source kube aliases
-[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+if [[ $(alias kubectl) ]]; then
+  # Disabled: https://github.com/zsh-users/zsh-autosuggestions/issues/422
+  # source <(minikube completion zsh)
+else
+  [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+fi
 
 # Set android home
 export ANDROID_HOME=/opt/android-sdk
