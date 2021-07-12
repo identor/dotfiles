@@ -49,7 +49,7 @@ function mydbenv () {
     [[ $DB_SERVER_CA ]] && caopts="$caopts --ssl-ca=$DB_SERVER_CA";
     [[ $DB_CLIENT_CERT ]] && caopts="$caopts --ssl-cert=$DB_CLIENT_CERT";
     [[ $DB_CLIENT_KEY ]] && caopts="$caopts --ssl-key=$DB_CLIENT_KEY";
-    $(echo $prog -u$DB_USER -p$DB_PASSWORD -P$DB_PORT -h$DB_HOST $caopts --database=$DB_DEFAULT) $@
+    $(echo $prog -u$DB_USER -p$DB_PASSWORD -P$DB_PORT -h$DB_HOST $caopts $DB_DEFAULT) $@
   )
 }
 
@@ -119,17 +119,19 @@ fi
 # User path configurations
 PATH="$PATH:$HOME/.local/bin"
 
+NVM_HOME=$HOME/.nvm
+if [[ ! -d $NVM_HOME ]]; then
+  LOCAL_SHARE_DIR=$HOME/.local/share
+  NODEJS_HOME=$LOCAL_SHARE_DIR/node
+  NODE_MODULES=$LOCAL_SHARE_DIR/node_modules
 
-LOCAL_SHARE_DIR=$HOME/.local/share
-NODEJS_HOME=$LOCAL_SHARE_DIR/node
-NODE_MODULES=$LOCAL_SHARE_DIR/node_modules
+  [ -d $NODEJS_HOME ] && PATH="$NODEJS_HOME/bin:$PATH"
+  if [ -d $NODE_MODULES ]; then
+    PATH="$NODE_MODULES/.bin:$PATH"
 
-[ -d $NODEJS_HOME ] && PATH="$NODEJS_HOME/bin:$PATH"
-if [ -d $NODE_MODULES ]; then
-  PATH="$NODE_MODULES/.bin:$PATH"
-
-  # Install local packages
-  alias npml="npm i --prefix $HOME/.local/share"
+    # Install local packages
+    alias npml="npm i --prefix $HOME/.local/share"
+  fi
 fi
 
 GEM=$HOME/.gem
