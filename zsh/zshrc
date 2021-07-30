@@ -145,8 +145,10 @@ export PATH
 export NODE_PATH=$NODEJS_HOME
 
 # Java
-export JAVA_HOME="$HOME/opt/java/bin/java"
-export PATH="$HOME/opt/java/bin:$PATH"
+if [ ! -d $JAVA_HOME ]; then
+  export JAVA_HOME="$HOME/opt/java/bin/java"
+  export PATH="$HOME/opt/java/bin:$PATH"
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -192,4 +194,7 @@ else
 fi
 
 # Set android home
-export ANDROID_HOME=/opt/android-sdk
+if [ ! -d $ANDROID_HOME ]; then
+  echo 'none!'
+  export ANDROID_HOME=/opt/android-sdk
+fi
