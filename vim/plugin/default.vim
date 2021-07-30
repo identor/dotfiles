@@ -9,7 +9,16 @@ se updatetime=1000
 se shell=/bin/zsh
 
 " Set clipboard
-se clipboard=unnamed,unnamedplus
+if has('clipboard') && has('vim_starting')
+  se clipboard& clipboard^=unnamed,unnamedplus
+endif
+
+if exists('##TextYankPost')
+  augroup BlinkClipboardIntegration
+    autocmd!
+    autocmd TextYankPost * silent! if v:event.operator ==# 'y' | call YankOSC52(join(v:event["regcontents"],"\n")) | endif
+  augroup END
+endif
 
 if has('wsl')
   echo 'hello!'
