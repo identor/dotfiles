@@ -23,3 +23,7 @@
 	ff = only
 [init]
 	defaultBranch = master
+[includeIf "gitdir:~/scm/bmi/"]
+	path = .gitconfig-bmi
+[includeIf "gitdir:~/scm/mclinica/"]
+	path = .gitconfig-mclinica
