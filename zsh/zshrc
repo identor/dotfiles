@@ -195,6 +195,5 @@ fi
 
 # Set android home
 if [ ! -d $ANDROID_HOME ]; then
-  echo 'none!'
   export ANDROID_HOME=/opt/android-sdk
 fi
