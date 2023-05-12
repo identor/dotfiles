@@ -134,7 +134,7 @@ if [[ ! -d $NVM_HOME ]]; then
   fi
 fi
 
-GEM=$HOME/.gem
+GEM=$([ -d "$LOCAL_SHARE_DIR/gem" ] && echo "$LOCAL_SHARE_DIR/gem" || echo "$HOME/.gem")
 if [ -d $GEM ]; then
   PATH="$GEM/ruby/$RUBY_VERSION/bin:$PATH"
 else
