@@ -120,8 +120,8 @@ fi
 PATH="$PATH:$HOME/.local/bin"
 
 NVM_HOME=$HOME/.nvm
+LOCAL_SHARE_DIR=$HOME/.local/share
 if [[ ! -d $NVM_HOME ]]; then
-  LOCAL_SHARE_DIR=$HOME/.local/share
   NODEJS_HOME=$LOCAL_SHARE_DIR/node
   NODE_MODULES=$LOCAL_SHARE_DIR/node_modules
 
