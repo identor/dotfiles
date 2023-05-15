@@ -9,7 +9,7 @@ se updatetime=1000
 se shell=/bin/zsh
 
 " Set clipboard
-if has('clipboard') && has('vim_starting')
+if has('wsl') || has('clipboard') && has('vim_starting')
   se clipboard& clipboard^=unnamed,unnamedplus
 endif
 
@@ -21,7 +21,18 @@ endif
 " endif
 
 if has('wsl')
-  echo 'hello!'
+  let g:clipboard = {
+        \   'name': 'WslClipboard',
+        \   'copy': {
+        \      '+': 'clip.exe',
+        \      '*': 'clip.exe',
+        \    },
+        \   'paste': {
+        \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        \   },
+        \   'cache_enabled': 0,
+        \ }
 endif
 
 " My defaults
