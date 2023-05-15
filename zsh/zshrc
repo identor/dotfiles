@@ -100,6 +100,9 @@ alias randimg='echo `curl -Ls -o /dev/null -w %{url_effective} http://source.uns
 # bypass zsh glob pattern
 unsetopt nomatch
 
+# XDG Config vars
+export XDG_CONFIG_HOME=$HOME/.config
+
 # fzf - enable fuzzy file search bindings
 if [ ! -d ~/.fzf ]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -119,9 +122,9 @@ fi
 # User path configurations
 PATH="$PATH:$HOME/.local/bin"
 
-NVM_HOME=$HOME/.nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 LOCAL_SHARE_DIR=$HOME/.local/share
-if [[ ! -d $NVM_HOME ]]; then
+if [[ ! -d $NVM_DIR ]]; then
   NODEJS_HOME=$LOCAL_SHARE_DIR/node
   NODE_MODULES=$LOCAL_SHARE_DIR/node_modules
 
@@ -156,30 +159,13 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Bat Colorscheme
 export BAT_THEME="ansi-light"
 
-# Load NVM
-NVM_HOME=$HOME/.nvm
-
-if [[ -d $NVM_HOME ]]; then
-  declare -a NODE_GLOBALS=(`find ~/.nvm/versions/node -maxdepth 3 -type l -wholename '*/bin/*' | xargs -n1 basename | sort | uniq`)
-  NODE_GLOBALS+=("node")
-  NODE_GLOBALS+=("nvm")
-  load_nvm () {
-    export NVM_DIR=~/.nvm
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  }
-  for cmd in "${NODE_GLOBALS[@]}"; do
-    eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; ${cmd} \$@ }"
-  done
-fi
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Composer
 COMPOSER_BIN=$XDG_CONFIG_HOME/composer/vendor/bin
 if [[ -d $COMPOSER_BIN ]]; then
   PATH="$COMPOSER_BIN:$PATH"
 fi
-
-# XDG Config vars
-export XDG_CONFIG_HOME=$HOME/.config
 
 # Az CLI autocomplete
 AZ_CLI_HOME="/home/identor/.local/lib/azure-cli"
