@@ -27,3 +27,5 @@
 	path = .gitconfig-bmi
 [includeIf "gitdir:~/scm/mclinica/"]
 	path = .gitconfig-mclinica
+[core]
+	commentchar = *
