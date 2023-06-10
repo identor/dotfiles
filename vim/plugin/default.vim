@@ -9,7 +9,7 @@ se updatetime=1000
 se shell=/bin/zsh
 
 " Set clipboard
-if has('wsl') || has('clipboard') && has('vim_starting')
+if has('clipboard') && has('vim_starting')
   se clipboard& clipboard^=unnamed,unnamedplus
 endif
 
