@@ -85,10 +85,6 @@ function de () {
 alias xclipc="xclip -sel clip"
 alias xclipcaccesstoken="jq -r '.access_token' | xclipc"
 
-# Use python 3
-alias python='/usr/bin/python3'
-alias pip='/usr/bin/python3 -m pip'
-
 # Date now Reverse timestamp
 alias datenow="date +%Y%m%d%H%M"
 alias today="date +%Y%m%d"
