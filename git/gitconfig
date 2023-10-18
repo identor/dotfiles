@@ -29,3 +29,5 @@
 	path = .gitconfig-mclinica
 [core]
 	commentchar = *
+[push]
+	autoSetupRemote = true
