@@ -24,9 +24,9 @@
 [init]
 	defaultBranch = master
 [includeIf "gitdir:~/scm/bmi/"]
-	path = .gitconfig-bmi
+	path = .gitconfig.bmi
 [includeIf "gitdir:~/scm/mclinica/"]
-	path = .gitconfig-mclinica
+	path = .gitconfig.mclinica
 [core]
 	commentchar = *
 [push]
