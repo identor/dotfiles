@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # enable fzf preview
-gem install coderay rouge highlight
+gem install --user-install coderay rouge highlight
