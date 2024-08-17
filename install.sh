@@ -27,15 +27,6 @@ config_tmux() {
     echo 'Configured tmux!'
 }
 
-# git config
-config_git() {
-    cp ./git/gitconfig $HOME/.gitconfig
-    cp ./git/gitconfig.bmi $HOME/.gitconfig.bmi
-    cp ./git/gitconfig.mclinica $HOME/.gitconfig.mclinica
-
-    echo 'Configured git!'
-}
-
 # systemd
 config_systemd() {
     systemd_dir="$HOME/.config/systemd/user"
