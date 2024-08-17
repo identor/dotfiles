@@ -1,0 +1,15 @@
+[Unit]
+Description=SSH key agent
+Documentation=man:ssh-agent(1)
+Wants=environment.target
+Before=environment.target
+
+[Service]
+Type=forking
+ExecStart=%h/.local/bin/start-ssh-agent
+ExecStartPost=/bin/systemctl --user set-environment \
+SSH_AUTH_SOCK=${SSH_AUTH_SOCK} \
+SSH_AGENT_PID=${SSH_AGENT_PID}
+
+[Install]
+WantedBy=default.target
