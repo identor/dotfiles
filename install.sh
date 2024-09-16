@@ -15,6 +15,9 @@ config_apt() {
 
 # tmux, see: https://github.com/tmux-plugins/tpm/issues/6#issuecomment-54520698
 config_tmux() {
+    ln -s $(pwd)/tmux/tmux.conf ~/.tmux.conf
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
     # start a server but don't attach to it
     tmux start-server
     # create a new session but don't attach to it either
@@ -41,7 +44,6 @@ config_ubuntu() {
     config_apt
     config_systemd
     config_tmux
-    config_git
 
     echo 'Configured ubuntu!'
 }
