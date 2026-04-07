@@ -164,7 +164,7 @@ if [[ -d $COMPOSER_BIN ]]; then
 fi
 
 # Az CLI autocomplete
-AZ_CLI_HOME="/home/identor/.local/lib/azure-cli"
+AZ_CLI_HOME="$HOME/.local/lib/azure-cli"
 [ -d $AZ_CLI_HOME ] && source "$AZ_CLI_HOME/az.completion"
 
 # Source kube aliases
