@@ -179,3 +179,9 @@ fi
 if [ ! -d $ANDROID_HOME ]; then
   export ANDROID_HOME=/opt/android-sdk
 fi
+
+if [ -f "$HOME/.local/share/google-cloud-sdk/completion.zsh.inc" ]; then
+  . "$HOME/.local/share/google-cloud-sdk/completion.zsh.inc";
+fi
+
+source <(kubectl completion zsh)

@@ -17,9 +17,13 @@ echo "Copying zshrc"
 cp $ZSHRC $HOME/.zshrc
 
 # Ensure ~/.zshenv sources ~/.profile in emulation mode
-if ! grep -q "source \"$HOME/.profile\"" $HOME/.zshenv 2>/dev/null; then
+if ! grep -q '\$HOME/.profile' "$HOME/.zshenv" 2>/dev/null; then
   echo "Setting up ~/.zshenv to source ~/.profile"
-  echo "if [ -f \"\$HOME/.profile\" ]; then\n    emulate sh -c \"source \\\"\\\$HOME/.profile\\\"\"\nfi" >> $HOME/.zshenv
+  cat >> "$HOME/.zshenv" << 'EOF'
+if [ -f "$HOME/.profile" ]; then
+    emulate sh -c "source \"$HOME/.profile\""
+fi
+EOF
 fi
 
 echo "Install complete"
