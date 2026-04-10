@@ -77,9 +77,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'ojroques/vim-oscyank'
 call plug#end()
 
-" Clipboard: use x11 tools if available, fall back to OSC 52 (for SSH/no-X11)
+" Clipboard: prefer OSC 52 (works over SSH without X11), fall back to X11 tools
 set clipboard=unnamedplus
-if has('nvim') && !executable('xclip') && !executable('xsel') && !executable('wl-copy')
+if has('nvim-0.10')
   lua << LUA
     vim.g.clipboard = {
       name = 'OSC 52',
@@ -94,4 +94,5 @@ if has('nvim') && !executable('xclip') && !executable('xsel') && !executable('wl
     }
 LUA
 endif
+" Older nvim/vim: clipboard=unnamedplus auto-detects xclip/xsel
 
