@@ -12,6 +12,6 @@ elseif isdirectory(expand(solarized_dir))
   let g:solarized_termtrans = 1
   let g:solarized_contrast = 'normal'
   let g:solarized_visibility = 'normal'
-  colo solarized
+  colo NeoSolarized
 endif
 

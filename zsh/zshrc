@@ -109,7 +109,8 @@ if [ ! -d ~/.fzf ]; then
   ~/.fzf/install
 fi
 source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'top:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 
 # Merge ~/.Xresources
